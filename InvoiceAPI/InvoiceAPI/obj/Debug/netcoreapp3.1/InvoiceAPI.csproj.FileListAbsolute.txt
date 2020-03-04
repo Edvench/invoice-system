@@ -1,0 +1,48 @@
+C:\Users\Admin\Desktop\WORK\InvoiceAPI\InvoiceAPI\bin\Debug\netcoreapp3.1\appsettings.Development.json
+C:\Users\Admin\Desktop\WORK\InvoiceAPI\InvoiceAPI\bin\Debug\netcoreapp3.1\appsettings.json
+C:\Users\Admin\Desktop\WORK\InvoiceAPI\InvoiceAPI\bin\Debug\netcoreapp3.1\Properties\launchSettings.json
+C:\Users\Admin\Desktop\WORK\InvoiceAPI\InvoiceAPI\bin\Debug\netcoreapp3.1\InvoiceAPI.exe
+C:\Users\Admin\Desktop\WORK\InvoiceAPI\InvoiceAPI\bin\Debug\netcoreapp3.1\InvoiceAPI.deps.json
+C:\Users\Admin\Desktop\WORK\InvoiceAPI\InvoiceAPI\bin\Debug\netcoreapp3.1\InvoiceAPI.runtimeconfig.json
+C:\Users\Admin\Desktop\WORK\InvoiceAPI\InvoiceAPI\bin\Debug\netcoreapp3.1\InvoiceAPI.runtimeconfig.dev.json
+C:\Users\Admin\Desktop\WORK\InvoiceAPI\InvoiceAPI\bin\Debug\netcoreapp3.1\InvoiceAPI.dll
+C:\Users\Admin\Desktop\WORK\InvoiceAPI\InvoiceAPI\bin\Debug\netcoreapp3.1\InvoiceAPI.pdb
+C:\Users\Admin\Desktop\WORK\InvoiceAPI\InvoiceAPI\obj\Debug\netcoreapp3.1\InvoiceAPI.csprojAssemblyReference.cache
+C:\Users\Admin\Desktop\WORK\InvoiceAPI\InvoiceAPI\obj\Debug\netcoreapp3.1\staticwebassets\InvoiceAPI.StaticWebAssets.Manifest.cache
+C:\Users\Admin\Desktop\WORK\InvoiceAPI\InvoiceAPI\obj\Debug\netcoreapp3.1\staticwebassets\InvoiceAPI.StaticWebAssets.xml
+C:\Users\Admin\Desktop\WORK\InvoiceAPI\InvoiceAPI\obj\Debug\netcoreapp3.1\InvoiceAPI.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\Admin\Desktop\WORK\InvoiceAPI\InvoiceAPI\obj\Debug\netcoreapp3.1\InvoiceAPI.AssemblyInfoInputs.cache
+C:\Users\Admin\Desktop\WORK\InvoiceAPI\InvoiceAPI\obj\Debug\netcoreapp3.1\InvoiceAPI.AssemblyInfo.cs
+C:\Users\Admin\Desktop\WORK\InvoiceAPI\InvoiceAPI\obj\Debug\netcoreapp3.1\InvoiceAPI.RazorTargetAssemblyInfo.cache
+C:\Users\Admin\Desktop\WORK\InvoiceAPI\InvoiceAPI\obj\Debug\netcoreapp3.1\InvoiceAPI.dll
+C:\Users\Admin\Desktop\WORK\InvoiceAPI\InvoiceAPI\obj\Debug\netcoreapp3.1\InvoiceAPI.pdb
+D:\Work Project\Work Project\InvoiceAPI\InvoiceAPI\bin\Debug\netcoreapp3.1\appsettings.Development.json
+D:\Work Project\Work Project\InvoiceAPI\InvoiceAPI\bin\Debug\netcoreapp3.1\appsettings.json
+D:\Work Project\Work Project\InvoiceAPI\InvoiceAPI\bin\Debug\netcoreapp3.1\Properties\launchSettings.json
+D:\Work Project\Work Project\InvoiceAPI\InvoiceAPI\bin\Debug\netcoreapp3.1\InvoiceAPI.exe
+D:\Work Project\Work Project\InvoiceAPI\InvoiceAPI\bin\Debug\netcoreapp3.1\InvoiceAPI.deps.json
+D:\Work Project\Work Project\InvoiceAPI\InvoiceAPI\bin\Debug\netcoreapp3.1\InvoiceAPI.runtimeconfig.json
+D:\Work Project\Work Project\InvoiceAPI\InvoiceAPI\bin\Debug\netcoreapp3.1\InvoiceAPI.runtimeconfig.dev.json
+D:\Work Project\Work Project\InvoiceAPI\InvoiceAPI\bin\Debug\netcoreapp3.1\InvoiceAPI.dll
+D:\Work Project\Work Project\InvoiceAPI\InvoiceAPI\bin\Debug\netcoreapp3.1\InvoiceAPI.pdb
+D:\Work Project\Work Project\InvoiceAPI\InvoiceAPI\obj\Debug\netcoreapp3.1\staticwebassets\InvoiceAPI.StaticWebAssets.Manifest.cache
+D:\Work Project\Work Project\InvoiceAPI\InvoiceAPI\obj\Debug\netcoreapp3.1\staticwebassets\InvoiceAPI.StaticWebAssets.xml
+D:\Work Project\Work Project\InvoiceAPI\InvoiceAPI\obj\Debug\netcoreapp3.1\InvoiceAPI.AssemblyInfoInputs.cache
+D:\Work Project\Work Project\InvoiceAPI\InvoiceAPI\obj\Debug\netcoreapp3.1\InvoiceAPI.AssemblyInfo.cs
+D:\Work Project\Work Project\InvoiceAPI\InvoiceAPI\obj\Debug\netcoreapp3.1\InvoiceAPI.RazorTargetAssemblyInfo.cache
+D:\Work Project\Work Project\InvoiceAPI\InvoiceAPI\obj\Debug\netcoreapp3.1\InvoiceAPI.dll
+D:\Work Project\Work Project\InvoiceAPI\InvoiceAPI\obj\Debug\netcoreapp3.1\InvoiceAPI.pdb
+D:\Work Project\Work Project\InvoiceAPI\InvoiceAPI\obj\Debug\netcoreapp3.1\InvoiceAPI.MvcApplicationPartsAssemblyInfo.cache
+D:\Work Project\Work Project\InvoiceAPI\InvoiceAPI\bin\Debug\netcoreapp3.1\InvoiceAPI.Views.dll
+D:\Work Project\Work Project\InvoiceAPI\InvoiceAPI\bin\Debug\netcoreapp3.1\NPOI.OOXML.dll
+D:\Work Project\Work Project\InvoiceAPI\InvoiceAPI\bin\Debug\netcoreapp3.1\NPOI.dll
+D:\Work Project\Work Project\InvoiceAPI\InvoiceAPI\bin\Debug\netcoreapp3.1\NPOI.OpenXml4Net.dll
+D:\Work Project\Work Project\InvoiceAPI\InvoiceAPI\bin\Debug\netcoreapp3.1\NPOI.OpenXmlFormats.dll
+D:\Work Project\Work Project\InvoiceAPI\InvoiceAPI\bin\Debug\netcoreapp3.1\Microsoft.Win32.SystemEvents.dll
+D:\Work Project\Work Project\InvoiceAPI\InvoiceAPI\bin\Debug\netcoreapp3.1\ICSharpCode.SharpZipLib.dll
+D:\Work Project\Work Project\InvoiceAPI\InvoiceAPI\bin\Debug\netcoreapp3.1\System.Drawing.Common.dll
+D:\Work Project\Work Project\InvoiceAPI\InvoiceAPI\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.0\Microsoft.Win32.SystemEvents.dll
+D:\Work Project\Work Project\InvoiceAPI\InvoiceAPI\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.0\System.Drawing.Common.dll
+D:\Work Project\Work Project\InvoiceAPI\InvoiceAPI\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.0\System.Drawing.Common.dll
+D:\Work Project\Work Project\InvoiceAPI\InvoiceAPI\obj\Debug\netcoreapp3.1\InvoiceAPI.csproj.CopyComplete
+D:\Work Project\Work Project\InvoiceAPI\InvoiceAPI\obj\Debug\netcoreapp3.1\InvoiceAPI.csprojAssemblyReference.cache
