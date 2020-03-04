@@ -15,7 +15,4 @@ export class UploadComponent {
     let dialogRef = this.dialog.open(DialogComponent, { width: '50%', height: '50%' });
   }
 
-  public getFile(){///Возвращает один файл
-    // this.uploadService.getFile();
-  }
 }

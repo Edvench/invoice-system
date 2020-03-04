@@ -3,19 +3,21 @@ import { NgModule } from '@angular/core';
 import {HttpClientModule} from '@angular/common/http';
 
 import { AppComponent } from './app.component';
-import { UploadModule } from './upload/upload.module';
+import { UploadModule } from './invoice/upload/upload.module';
 import {MatInputModule} from '@angular/material/input';
-import { RaidInputComponent } from './raid-input/raid-input.component';
+import { RaidComponent } from '../app/invoice/raid/raid.component';
 import {MatButtonModule} from '@angular/material/button';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import {InvoiceService} from './invoice-service'
+import {InvoiceService} from './invoice-service';
+import { InvoiceComponent } from './invoice/invoice.component'
 
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    RaidInputComponent
+    RaidComponent,
+    InvoiceComponent
   ],
   imports: [
     BrowserModule,

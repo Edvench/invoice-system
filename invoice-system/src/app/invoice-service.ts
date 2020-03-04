@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {InvoceReques} from './invoice-request';
-import {UploadService} from 'src/app/upload/upload.service';
+import {UploadService} from 'src/app/invoice/upload/upload.service';
 
 
    
@@ -15,12 +15,12 @@ export class InvoiceService{
         request: InvoceReques = new InvoceReques;
  
 
-    postData(money:number){
-        this.request.money = money;
+    postData(request:InvoceReques){
+        // this.request.money = money;
         let body = {money: this.request.money,file:this.request.file };
-        body = this.request;
+        // body = this.request;
         console.log(this.request.money)
-        return this.http.post('http://localhost:44315/postinvoice', this.request); 
+        return this.http.post('http://localhost:44315/postinvoice', body); 
         
     }
 }
