@@ -16,7 +16,6 @@ export class RaidComponent implements OnInit {
      ) { }
 
   ngOnInit() {
-    
   }
 
  

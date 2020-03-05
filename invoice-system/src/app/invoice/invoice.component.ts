@@ -31,12 +31,16 @@ export class InvoiceComponent implements OnInit {
   public file :Set<File>;
   public money: number;
 
+//   submit(){
+//     this.invoiceService.postData()
+// }
+
   public getInvoice(){
   console.log(this.raidComponent.moneyFromInput,this.fileService.getFile());
   this.request.money = this.raidComponent.moneyFromInput;
   this.request.file = this.fileService.getFile();
   this.invoiceService.createRequest(this.request.money,this.request.file);
-  this.invoiceService.postData();
+  this.invoiceService.postData().subscribe();
   }
 
 }

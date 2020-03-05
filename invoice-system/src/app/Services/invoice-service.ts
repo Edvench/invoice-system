@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {HttpClient} from '@angular/common/http';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
 
 import {InvoceRequest} from '../Entity/invoice-request';
 
@@ -19,6 +19,10 @@ export class InvoiceService{
     }
 
     postData(){
-        return this.http.post('http://localhost:44315/postinvoice', this.request); 
+        console.log(this.request);
+        let headers = new HttpHeaders();
+        headers = headers.set('Content-Type', 'application/json');
+
+        return this.http.get('https://localhost:44315/api/home/get',{ headers: headers }); //, this.request
     }
 }

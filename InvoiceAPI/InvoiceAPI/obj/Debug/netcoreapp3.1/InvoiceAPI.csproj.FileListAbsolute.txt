@@ -32,7 +32,6 @@ D:\Work Project\Work Project\InvoiceAPI\InvoiceAPI\obj\Debug\netcoreapp3.1\Invoi
 D:\Work Project\Work Project\InvoiceAPI\InvoiceAPI\obj\Debug\netcoreapp3.1\InvoiceAPI.RazorTargetAssemblyInfo.cache
 D:\Work Project\Work Project\InvoiceAPI\InvoiceAPI\obj\Debug\netcoreapp3.1\InvoiceAPI.dll
 D:\Work Project\Work Project\InvoiceAPI\InvoiceAPI\obj\Debug\netcoreapp3.1\InvoiceAPI.pdb
-D:\Work Project\Work Project\InvoiceAPI\InvoiceAPI\obj\Debug\netcoreapp3.1\InvoiceAPI.MvcApplicationPartsAssemblyInfo.cache
 D:\Work Project\Work Project\InvoiceAPI\InvoiceAPI\bin\Debug\netcoreapp3.1\InvoiceAPI.Views.dll
 D:\Work Project\Work Project\InvoiceAPI\InvoiceAPI\bin\Debug\netcoreapp3.1\NPOI.OOXML.dll
 D:\Work Project\Work Project\InvoiceAPI\InvoiceAPI\bin\Debug\netcoreapp3.1\NPOI.dll
@@ -46,3 +45,10 @@ D:\Work Project\Work Project\InvoiceAPI\InvoiceAPI\bin\Debug\netcoreapp3.1\runti
 D:\Work Project\Work Project\InvoiceAPI\InvoiceAPI\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.0\System.Drawing.Common.dll
 D:\Work Project\Work Project\InvoiceAPI\InvoiceAPI\obj\Debug\netcoreapp3.1\InvoiceAPI.csproj.CopyComplete
 D:\Work Project\Work Project\InvoiceAPI\InvoiceAPI\obj\Debug\netcoreapp3.1\InvoiceAPI.csprojAssemblyReference.cache
+D:\Work Project\Work Project\InvoiceAPI\InvoiceAPI\bin\Debug\netcoreapp3.1\System.Web.Cors.dll
+D:\Work Project\Work Project\InvoiceAPI\InvoiceAPI\bin\Debug\netcoreapp3.1\System.Net.Http.Formatting.dll
+D:\Work Project\Work Project\InvoiceAPI\InvoiceAPI\bin\Debug\netcoreapp3.1\System.Web.Http.dll
+D:\Work Project\Work Project\InvoiceAPI\InvoiceAPI\bin\Debug\netcoreapp3.1\System.Web.Http.Cors.dll
+D:\Work Project\Work Project\InvoiceAPI\InvoiceAPI\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
+D:\Work Project\Work Project\InvoiceAPI\InvoiceAPI\bin\Debug\netcoreapp3.1\Newtonsoft.Json.Bson.dll
+D:\Work Project\Work Project\InvoiceAPI\InvoiceAPI\obj\Debug\netcoreapp3.1\InvoiceAPI.MvcApplicationPartsAssemblyInfo.cache

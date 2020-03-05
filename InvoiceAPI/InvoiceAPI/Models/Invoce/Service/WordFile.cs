@@ -1,8 +1,10 @@
 ﻿using InvoiceAPI.Helper;
+using InvoiceAPI.Http.Responce;
 using Microsoft.AspNetCore.Hosting;
 using System;
 using System.IO;
-
+using System.Net.Http;
+using System.Threading.Tasks;
 
 namespace InvoiceAPI.Models.Invoce.Service
 {
@@ -36,5 +38,6 @@ namespace InvoiceAPI.Models.Invoce.Service
 
             return Path.Combine(this._env.ContentRootPath, this._readPath);
         }
+
     }
 }
