@@ -4,6 +4,7 @@ import { UploadService } from '../upload.service';
 import { forkJoin } from 'rxjs';
 import {InvoceReques} from 'src/app/invoice-request'
 import {InvoiceService} from 'src/app/invoice-service'
+import { GetFileService } from 'src/app/get-file.service';
 
 @Component({
   selector: 'app-dialog',
@@ -19,7 +20,8 @@ export class DialogComponent implements OnInit {
   constructor(
     public dialogRef: MatDialogRef<DialogComponent>, 
     public uploadService: UploadService,
-    public invoiceService:InvoiceService
+    public invoiceService:InvoiceService,
+    public fileService:GetFileService
     ) { }
 
   
@@ -58,6 +60,7 @@ export class DialogComponent implements OnInit {
     // start the upload and save the progress map
     this.progress = this.uploadService.upload(this.files);
     console.log(this.progress);
+    this.fileService.setFile(this.progress)
     for (const key in this.progress) {
       this.progress[key].progress.subscribe(val => console.log(val));
     }

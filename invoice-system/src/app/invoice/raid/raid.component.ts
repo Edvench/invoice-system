@@ -9,8 +9,7 @@ import {InvoiceService} from 'src/app/invoice-service'
   styleUrls: ['./raid.component.css']
 })
 export class RaidComponent implements OnInit {
-  request: InvoceReques = new InvoceReques;///Money anf File from Request
-  @Input() moneyFromInput:number;///Свойство компонента,в которое записываетчя значение с интупа
+  @Input() moneyFromInput:number;///Свойство компонента,в которое записываетcя значение с интупа
 
    constructor(
      private invoiceService:InvoiceService,

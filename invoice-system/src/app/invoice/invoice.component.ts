@@ -3,6 +3,8 @@ import { InvoiceService } from '../invoice-service';
 import { RaidComponent } from './raid/raid.component';
 import { DialogComponent } from './upload/dialog/dialog.component';
 import { UploadComponent } from './upload/upload.component';
+import { UploadService } from './upload/upload.service';
+import { GetFileService } from '../get-file.service';
 
 @Component({
   selector: 'app-invoice',
@@ -13,11 +15,9 @@ export class InvoiceComponent implements OnInit {
   @ViewChild(RaidComponent, {static: false})
   private raidComponent: RaidComponent;///Получили дочерний компонент в родительском
 
-  @ViewChild(UploadComponent, {static: false})
-  private uploadComponent: UploadComponent;
-
   constructor(
-    private invoiceService:InvoiceService
+    private invoiceService:InvoiceService,
+    private fileService:GetFileService
   ) { }
 
   ngOnInit() {
@@ -27,7 +27,7 @@ export class InvoiceComponent implements OnInit {
   public money: number;
 
   public getMoney(){
-  console.log(this.raidComponent.moneyFromInput);
+  console.log(this.raidComponent.moneyFromInput,this.fileService.getFile());
   }
 
 }
