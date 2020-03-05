@@ -1,12 +1,12 @@
 import { Component, OnInit, Input, Output, ViewChild } from '@angular/core';
-import {InvoceReques} from 'src/app/invoice-request';
-import {InvoiceService} from 'src/app/invoice-service'
+import {InvoiceService} from 'src/app/Services/invoice-service'
 
 
 @Component({
+  moduleId:module.id,
   selector: 'app-raid',
-  templateUrl: './raid.component.html',
-  styleUrls: ['./raid.component.css']
+  templateUrl: 'raid.component.html',
+  styleUrls: ['raid.component.css']
 })
 export class RaidComponent implements OnInit {
   @Input() moneyFromInput:number;///Свойство компонента,в которое записываетcя значение с интупа

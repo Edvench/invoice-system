@@ -8,9 +8,11 @@ import {MatInputModule} from '@angular/material/input';
 import { RaidComponent } from '../app/invoice/raid/raid.component';
 import {MatButtonModule} from '@angular/material/button';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import {InvoiceService} from './invoice-service';
+import {InvoiceService} from './Services/invoice-service';
 import { InvoiceComponent } from './invoice/invoice.component'
-import {InvoceReques} from './invoice-request'
+import {InvoceRequest} from './Entity/invoice-request'
+import { RouterModule } from '@angular/router';
+import { Rout } from './Routing/rout';
 
 
 
@@ -27,11 +29,12 @@ import {InvoceReques} from './invoice-request'
     MatButtonModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    RouterModule.forRoot(Rout)
   ],
   providers: [
     InvoiceService,
-    InvoceReques
+    InvoceRequest
   ],
   bootstrap: [AppComponent]
 })

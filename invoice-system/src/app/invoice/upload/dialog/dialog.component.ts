@@ -1,15 +1,15 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatDialogRef } from '@angular/material';
-import { UploadService } from '../upload.service';
+import { UploadService } from 'src/app/Services/upload.service';
 import { forkJoin } from 'rxjs';
-import {InvoceReques} from 'src/app/invoice-request'
-import {InvoiceService} from 'src/app/invoice-service'
-import { GetFileService } from 'src/app/get-file.service';
+import {InvoiceService} from 'src/app/Services/invoice-service'
+import { GetFileService } from 'src/app/Services/get-file.service';
 
 @Component({
+  moduleId:module.id,
   selector: 'app-dialog',
-  templateUrl: './dialog.component.html',
-  styleUrls: ['./dialog.component.scss']
+  templateUrl: 'dialog.component.html',
+  styleUrls: ['dialog.component.scss']
 })
 export class DialogComponent implements OnInit {
   @ViewChild('file', { static: false }) file;

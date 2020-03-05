@@ -1,17 +1,18 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import {InvoceReques} from './invoice-request';
+
+import {InvoceRequest} from '../Entity/invoice-request';
 
 @Injectable()
 export class InvoiceService{
    
     constructor(
         private http: HttpClient,
-        private request: InvoceReques
+        private request: InvoceRequest
         ){ }
  
 
-    createRequest(money,file):InvoceReques{
+    createRequest(money,file):InvoceRequest{
         this.request = {money,file};
         console.log(this.request)
         return this.request;

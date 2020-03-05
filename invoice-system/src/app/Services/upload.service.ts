@@ -6,8 +6,6 @@ import {
   HttpResponse
 } from '@angular/common/http';
 import { Subject, Observable } from 'rxjs';
-import {InvoceReques} from 'src/app/invoice-request';
-import {InvoiceService} from 'src/app/invoice-service'
 
 const url = 'http://localhost:3000/upload';
 
