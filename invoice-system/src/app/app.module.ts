@@ -10,6 +10,7 @@ import {MatButtonModule} from '@angular/material/button';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {InvoiceService} from './invoice-service';
 import { InvoiceComponent } from './invoice/invoice.component'
+import {InvoceReques} from './invoice-request'
 
 
 
@@ -29,7 +30,8 @@ import { InvoiceComponent } from './invoice/invoice.component'
     HttpClientModule
   ],
   providers: [
-    InvoiceService
+    InvoiceService,
+    InvoceReques
   ],
   bootstrap: [AppComponent]
 })

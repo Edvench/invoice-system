@@ -5,6 +5,7 @@ import { DialogComponent } from './upload/dialog/dialog.component';
 import { UploadComponent } from './upload/upload.component';
 import { UploadService } from './upload/upload.service';
 import { GetFileService } from '../get-file.service';
+import { InvoceReques } from '../invoice-request';
 
 @Component({
   selector: 'app-invoice',
@@ -20,14 +21,21 @@ export class InvoiceComponent implements OnInit {
     private fileService:GetFileService
   ) { }
 
+  request: InvoceReques = new InvoceReques;
+
+
   ngOnInit() {
   }
 
   public file :Set<File>;
   public money: number;
 
-  public getMoney(){
+  public getInvoice(){
   console.log(this.raidComponent.moneyFromInput,this.fileService.getFile());
+  this.request.money = this.raidComponent.moneyFromInput;
+  this.request.file = this.fileService.getFile();
+  this.invoiceService.createRequest(this.request.money,this.request.file);
+  this.invoiceService.postData();
   }
 
 }
