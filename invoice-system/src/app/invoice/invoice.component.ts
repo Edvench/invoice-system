@@ -39,6 +39,7 @@ export class InvoiceComponent implements OnInit {
   console.log(this.raidComponent.moneyFromInput,this.fileService.getFile());
   this.request.money = this.raidComponent.moneyFromInput;
   this.request.file = this.fileService.getFile();
+  console.log(this.request.file);
   this.invoiceService.createRequest(this.request.money,this.request.file);
   this.invoiceService.postData().subscribe();
   }

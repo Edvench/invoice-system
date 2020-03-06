@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Net;
+using System.Net.Http;
 using System.Threading.Tasks;
 using InvoiceAPI.Http.Request;
 using InvoiceAPI.Models.Invoce.Entity;
@@ -34,15 +36,23 @@ namespace InvoiceAPI.Http.Controllers
         }
 
         [HttpPost]
-        public ActionResult Invoce()
+        public ActionResult Invoce([FromForm]InvoceReques reques)
         {
-            //if (reques.File != null && reques.File.Length > 0 && reques.Money > 0)
-            //{
-            //    Invoce invoce = this._service.createInvoce(reques);
-            //    this._service.generateWork(invoce);
+            //var provider = new MultipartMemoryStreamProvider();
+            if (reques.File != null && reques.File.Length > 0 && reques.Money > 0)
+            {
+                Invoce invoce = this._service.createInvoce(reques);
+                this._service.generateWork(invoce);
 
-            //    return PhysicalFile(this._wordFile.GetReadPath(), WordFile.FILE_TYPE_RESPONSE); ;
-            //}
+                var result = new PhysicalFileResult(this._wordFile.GetReadPath(), WordFile.FILE_TYPE_RESPONSE)
+                {
+                    FileDownloadName = WordFile.FILE_NAME,
+                    FileName = this._wordFile.GetReadPath()
+                };
+                return result;
+
+                //return PhysicalFile(this._wordFile.GetReadPath(), WordFile.FILE_TYPE_RESPONSE); 
+            }
 
             return this.Ok();
         }
@@ -51,6 +61,7 @@ namespace InvoiceAPI.Http.Controllers
         [HttpGet]
         public IEnumerable<string> Get()
         {
+            string path = Path.GetRelativePath("InvoiceAPI", this._wordFile.GetReadPath());
             return new string[] { "value1", "value2" };
         }
 

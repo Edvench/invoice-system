@@ -6,6 +6,7 @@ import {
   HttpResponse
 } from '@angular/common/http';
 import { Subject, Observable } from 'rxjs';
+import { GetFileService } from './get-file.service';
 
 const url = 'http://localhost:3000/upload';
 
@@ -13,6 +14,7 @@ const url = 'http://localhost:3000/upload';
 export class UploadService {
   constructor(
     private http: HttpClient,
+    private setData: GetFileService
     ) { }
 
   public upload(
@@ -21,11 +23,13 @@ export class UploadService {
     // это будет наша получившаяся карта
     const status: { [key: string]: { progress: Observable<number> } } = {};
 
+    
     files.forEach(file => {
       // создать новую multipart-форму для каждого файла
       const formData: FormData = new FormData();
       formData.append('file', file, file.name);
-
+      
+      this.setData.setFormData(formData);
 
       // создайте запрос http-post и передайте форму
       // скажи это, чтобы сообщить о прогрессе загрузки
@@ -63,9 +67,13 @@ export class UploadService {
     return status;
   }
 
-  public getFile(file:File){///Возвращает один файл
-    const formData: FormData = new FormData();
-    formData.append('file', file, file.name);
-    return formData;
+  public getFile(files: Set<File>)  {
+    files.forEach(file => {
+      const formData: FormData = new FormData();
+      formData.append('file', file, file.name);
+      console.log(formData);
+      return formData;
+    });
   }
+
 }

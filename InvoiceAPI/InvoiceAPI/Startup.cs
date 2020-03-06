@@ -30,13 +30,14 @@ namespace InvoiceAPI
             services.AddControllers();
             this.DICinvoce(services);
             // Enable CORS
-            services.AddCors(options =>
+            services.AddCors(o => o.AddPolicy("AllowAny", builder =>
             {
-                options.AddPolicy("CorsPolicy",
-                    builder => builder.AllowAnyOrigin()
-                    .AllowAnyMethod()
-                    .AllowAnyHeader());
-            });
+                builder.AllowAnyOrigin()
+                       .AllowAnyMethod()
+                       .AllowAnyHeader();
+            }));
+
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -46,6 +47,9 @@ namespace InvoiceAPI
             {
                 app.UseDeveloperExceptionPage();
             }
+
+            app.UseCors("AllowAny");
+
             app.UseHttpsRedirection();
 
             app.UseRouting();
@@ -57,10 +61,9 @@ namespace InvoiceAPI
                 endpoints.MapControllers();
             });
 
-            app.UseCors("CorsPolicy");
 
-            //app.UseDefaultFiles();
-            //app.UseStaticFiles();
+            app.UseDefaultFiles();
+            app.UseStaticFiles();
         }
 
         private void DICinvoce(IServiceCollection services)

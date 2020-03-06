@@ -10,7 +10,7 @@ namespace InvoiceAPI.Models.Invoce.Entity
         public int SumMoney { get; private set; }
         public int TotalHourse { get; private set; }
 
-        public Invoce(int money, int totalHourse)///Входящие значения будут приравниваться к полям класса
+        public Invoce(int money, int totalHourse)
         {
             this.SumMoney = (money * totalHourse);
             this.TotalHourse = totalHourse;
