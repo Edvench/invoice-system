@@ -1,5 +1,7 @@
-import { Component, OnInit, Input, Output, ViewChild } from '@angular/core';
+import { Component, OnInit, Input, Output, ViewChild, EventEmitter } from '@angular/core';
 import {InvoiceService} from 'src/app/Services/invoice-service'
+import { FormGroup, FormControl, Validators } from '@angular/forms';
+import {ErrorStateMatcher} from '@angular/material/core';
 
 
 @Component({
@@ -10,6 +12,12 @@ import {InvoiceService} from 'src/app/Services/invoice-service'
 })
 export class RaidComponent implements OnInit {
   @Input() moneyFromInput:number;///Свойство компонента,в которое записываетcя значение с интупа
+  numberFormControl = new FormControl('', [
+    Validators.required,
+    Validators.pattern("^\d{1,}$"),
+  ]);
+
+  matcher = new ErrorStateMatcher();
 
    constructor(
      private invoiceService:InvoiceService,
@@ -17,6 +25,14 @@ export class RaidComponent implements OnInit {
 
   ngOnInit() {
   }
+
+  onTitleChange(money){
+    money = this.moneyFromInput;
+    if(money!= Number)
+        money = "неизвестно";
+    return money;
+  }
+  
 
  
 }

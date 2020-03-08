@@ -41,6 +41,7 @@ namespace InvoiceAPI.Http.Controllers
             //var provider = new MultipartMemoryStreamProvider();
             if (reques.File != null && reques.File.Length > 0 && reques.Money > 0)
             {
+                HttpResponseMessage response;
                 Invoce invoce = this._service.createInvoce(reques);
                 this._service.generateWork(invoce);
 
@@ -49,6 +50,8 @@ namespace InvoiceAPI.Http.Controllers
                     FileDownloadName = WordFile.FILE_NAME,
                     FileName = this._wordFile.GetReadPath()
                 };
+
+                byte[] bytes = File.ReadAllBytes(result);
                 return result;
 
                 //return PhysicalFile(this._wordFile.GetReadPath(), WordFile.FILE_TYPE_RESPONSE); 

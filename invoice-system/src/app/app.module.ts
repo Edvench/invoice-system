@@ -24,6 +24,7 @@ import { Rout } from './Routing/rout';
   ],
   imports: [
     BrowserModule,
+    ReactiveFormsModule,
     UploadModule,
     MatInputModule,
     MatButtonModule,

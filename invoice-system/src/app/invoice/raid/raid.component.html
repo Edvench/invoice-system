@@ -1,9 +1,15 @@
 <form class="raid-form">
-    <mat-form-field class="raid-full-width">
+    <mat-form-field class="raid-input">
       <mat-label>Raid</mat-label>
-      <input matInput maxlength="256" placeholder="Raid"
-      type="number" name="money" [(ngModel)]="moneyFromInput">
-      <mat-hint align="start"><strong>Raid</strong> </mat-hint>
+      <input matInput required pattern="^\d{1,}$" maxlength="256" 
+       name="name" [(ngModel)]="moneyFromInput" />
+      <mat-hint align="start"><strong>Please,input your raid</strong> </mat-hint>
+      <mat-error *ngIf="numberFormControl.errors?.pattern">
+        Please enter a number
+      </mat-error>
+      <mat-error *ngIf="numberFormControl.hasError('required')">
+        Email is <strong>required</strong>
+      </mat-error>
     </mat-form-field>
 </form>
 
