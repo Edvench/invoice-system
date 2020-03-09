@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+//using System.Web.Http;
 using System.Net.Http.Headers;
 using System.Threading.Tasks;
 using InvoiceAPI.Http.Request;
@@ -37,26 +38,15 @@ namespace InvoiceAPI.Http.Controllers
         }
 
         [HttpPost]
-        public ActionResult Invoce([FromForm]InvoceReques reques)
+        public FileContentResult Invoce([FromForm]InvoceReques reques)
         {
             Invoce invoce = this._service.createInvoce(reques);
             this._service.generateWork(invoce);
 
-            return Json(new
-               {
-                   status = 200,
-                   file = System.IO.File.ReadAllBytes(this._wordFile.GetReadPath()).ToArray(),
-               }
+            return File(
+                System.IO.File.ReadAllBytes(this._wordFile.GetReadPath()),
+                "application/vnd.openxmlformats-officedocument.wordprocessingml.document"
             );
         }
-
-
-        [HttpGet]
-        public IEnumerable<string> Get()
-        {
-            string path = Path.GetRelativePath("InvoiceAPI", this._wordFile.GetReadPath());
-            return new string[] { "value1", "value2" };
-        }
-
     }
 }

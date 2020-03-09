@@ -35,15 +35,18 @@ export class InvoiceComponent implements OnInit {
 //     this.invoiceService.postData()
 // }
 
-
-
   public getInvoice(){
-  console.log(this.raidComponent.moneyFromInput,this.fileService.getFile());
-  this.request.money = this.raidComponent.moneyFromInput;
-  this.request.file = this.fileService.getFile();
-  console.log(this.request.file);
-  this.invoiceService.createRequest(this.request.money,this.request.file);
-  this.invoiceService.postData().subscribe();;
+    console.log(this.raidComponent.moneyFromInput,this.fileService.getFile());
+    this.request.money = this.raidComponent.moneyFromInput;
+    this.request.file = this.fileService.getFile();
+    this.invoiceService.postData(this.request.money).subscribe(
+      (response: any) => {
+        const blob = new Blob([response],{ type: 'application/vnd.openxmlformats-officedocument.wordprocessingml.document' });
+        const url  = window.URL.createObjectURL(blob);
+
+        window.open(url);
+      }
+    );
   }
 
 }

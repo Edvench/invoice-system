@@ -16,37 +16,12 @@ export class InvoiceService{
         private upload:UploadService,
         private setData: GetFileService
         ){ }
- 
 
-    createRequest(money, file):InvoceRequest{
-        this.request = {money, file};
-        console.log(this.request)
-        return this.request;
-    }
+    postData(money){
+        var formData = this.setData.getFormData();///вытягиваем
+        formData.append('Money', money);
 
-    postData(){
-        var formData = this.setData.getFormData();
-        formData.append('Money', this.request.money);
-
-        const headers: HttpHeaders = new HttpHeaders()
-        .set('Accept', 'application/octet-stream')
-        .set('Content-Range', 'bytes 0-1023/2048');
-
-        var response = this.http.post('https://localhost:44315/api/home/invoce', formData, {headers: headers })
-        .pipe(map((response: any) => {
-            // const blob = new Blob([atob(response.file)], { type: 'application/msword' });
-            
-            const blob = new Blob([atob(response.file)],{ type: 'application/vnd.openxmlformats-officedocument.wordprocessingml.document;charset=windows-1252' });
-            
-            const url  = window.URL.createObjectURL(blob);
-            console.log((response.file));
-            console.log(atob(response.file));
-
-            window.open(url);
-            
-        }));        
-
-        return response;
+        return this.http.post('https://localhost:44315/api/home/invoce', formData, {responseType: 'blob' }); 
     }
 
 
