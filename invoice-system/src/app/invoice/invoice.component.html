@@ -1,5 +1,7 @@
 <div class = "invoice-container">
-<app-upload></app-upload>
-<app-raid></app-raid>
+    <app-upload></app-upload>
+    <app-raid></app-raid>
+    <div class="raid-button-container">
+        <button mat-raised-button  (click)="getInvoice()">Generate invoice</button>
+    </div>
 </div>
-<button mat-raised-button (click)="getInvoice()">Ok</button>
