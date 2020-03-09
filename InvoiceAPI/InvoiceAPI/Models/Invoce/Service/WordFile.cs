@@ -10,7 +10,7 @@ namespace InvoiceAPI.Models.Invoce.Service
     public class WordFile
     {
         public const string FILE_NAME = "DocumentWithInvoce.docx";
-        public const string FILE_TYPE_RESPONSE = "application/msword";
+        public const string FILE_TYPE_RESPONSE = "application/vnd.openxmlformats-officedocument.wordprocessingml.document;charset=utf-8";
 
         private string _writePath;
         private string _readPath;

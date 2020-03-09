@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Net.Http.Headers;
 using System.Threading.Tasks;
 using InvoiceAPI.Http.Request;
 using InvoiceAPI.Models.Invoce.Entity;
@@ -38,26 +39,15 @@ namespace InvoiceAPI.Http.Controllers
         [HttpPost]
         public ActionResult Invoce([FromForm]InvoceReques reques)
         {
-            //var provider = new MultipartMemoryStreamProvider();
-            if (reques.File != null && reques.File.Length > 0 && reques.Money > 0)
-            {
-                HttpResponseMessage response;
-                Invoce invoce = this._service.createInvoce(reques);
-                this._service.generateWork(invoce);
+            Invoce invoce = this._service.createInvoce(reques);
+            this._service.generateWork(invoce);
 
-                var result = new PhysicalFileResult(this._wordFile.GetReadPath(), WordFile.FILE_TYPE_RESPONSE)
-                {
-                    FileDownloadName = WordFile.FILE_NAME,
-                    FileName = this._wordFile.GetReadPath()
-                };
-
-                byte[] bytes = File.ReadAllBytes(result);
-                return result;
-
-                //return PhysicalFile(this._wordFile.GetReadPath(), WordFile.FILE_TYPE_RESPONSE); 
-            }
-
-            return this.Ok();
+            return Json(new
+               {
+                   status = 200,
+                   file = System.IO.File.ReadAllBytes(this._wordFile.GetReadPath()).ToArray(),
+               }
+            );
         }
 
 
