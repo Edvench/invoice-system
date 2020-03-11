@@ -1,4 +1,4 @@
 .vs
 
 # App Enviroment
-/invoice-system/src/enviroments/enviroment.ts
+/invoice-system/src/environments/enviroment.ts
