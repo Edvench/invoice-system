@@ -48,5 +48,12 @@ namespace InvoiceAPI.Http.Controllers
                 "application/vnd.openxmlformats-officedocument.wordprocessingml.document"
             );
         }
+
+        [HttpPost]
+        public ActionResult Upload([FromForm]MultipartFormDataContent file)
+        {
+            MultipartFormDataContent uploadFile = file;
+            return this.Ok();
+        }
     }
 }

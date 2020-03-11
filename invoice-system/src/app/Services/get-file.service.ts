@@ -27,8 +27,4 @@ export class GetFileService {
     this.formData = formData;
   }
 
-public getWord(){
-
-}
-
 }

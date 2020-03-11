@@ -7,15 +7,21 @@ import {
 } from '@angular/common/http';
 import { Subject, Observable } from 'rxjs';
 import { GetFileService } from './get-file.service';
-
-const url = 'http://localhost:3000/upload';
+import { environment } from '../../environments/environment';
 
 @Injectable()
 export class UploadService {
+
+  private apiEndPoint: string;
+
   constructor(
     private http: HttpClient,
     private setData: GetFileService
-    ) { }
+    ) {
+      this.apiEndPoint = environment.domainUrl;
+     }
+
+
 
   public upload(
     files: Set<File>
@@ -33,7 +39,7 @@ export class UploadService {
 
       // создайте запрос http-post и передайте форму
       // скажи это, чтобы сообщить о прогрессе загрузки
-      const req = new HttpRequest('POST', url, formData, {
+      const req = new HttpRequest('POST', this.apiEndPoint + "/api/home/upload", formData, {
         reportProgress: true
       });
 
