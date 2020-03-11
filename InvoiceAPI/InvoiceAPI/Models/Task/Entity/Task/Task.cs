@@ -7,25 +7,28 @@ namespace InvoiceAPI.Models.Task.Entity
 {
     public class Task
     {
-        public string ID = Guid.NewGuid().ToString();
-        public double Money { get; set; }
-        public string Title { get; set; }
-        public string Description { get; set; }
-        public DateTime Date_of_Task { get; set; }
-        public DateTime Created_at { get; set; }
+        public string Id { get; private set; }
+        public double Money { get; private set; }
+        public string Title { get; private set; }
+        public string Description { get; private set; }
+        public DateTime DateFoTask { get; private set; }
+        public DateTime CreatedAt { get; private set; }
 
         public static Task Create (
+        string id,
         double money,
         string title,
         string description,
-        DateTime date_of_task
-        ){
+        DateTime dateOfTask
+        ) {
             Task task = new Task();
+
+            task.Id = id;
             task.Money = money;
             task.Title = title;
             task.Description = description;
-            task.Date_of_Task = date_of_task;
-            task.Created_at = date_of_task;///Установить текущему datatim??
+            task.DateFoTask = dateOfTask;
+            task.CreatedAt = (new DateTime());///Установить текущему datatim??
 
             return task;
         }

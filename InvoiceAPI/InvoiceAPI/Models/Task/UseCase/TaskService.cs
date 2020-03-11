@@ -1,4 +1,5 @@
 ﻿using InvoiceAPI.Http.Request.Task;
+using InvoiceAPI.Models.Task.Entity.Repository;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,14 +9,24 @@ namespace InvoiceAPI.Models.Task.Entity.UseCase
 {
     public class TaskService
     {
-        private readonly Task _task;
+        private readonly EFRepository _eFRepository;
 
-        public TaskService(Task task) {
-            this._task = task;
+        public TaskService(EFRepository repository)
+        {
+            this._eFRepository = repository;
         }
 
-        public void Create(TaskRequest taskRequest) {
-           Task.Create(taskRequest.Money,taskRequest.Title,taskRequest.Description,taskRequest.Date_of_task);
+        public void Create(TaskRequest taskRequest)
+        {
+            Task task = Task.Create(
+                Guid.NewGuid().ToString(),
+                taskRequest.Money,
+                taskRequest.Title,
+                taskRequest.Description,
+                taskRequest.DateOfTask
+            );
+
+            this._eFRepository.Add(task);
         }
     }
 }

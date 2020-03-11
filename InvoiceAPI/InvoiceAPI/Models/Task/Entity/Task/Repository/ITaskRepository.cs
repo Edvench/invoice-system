@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace InvoiceAPI.Models.Task.Entity.Repository
 {
-    interface ITaskRepository<Task>
+    interface ITaskRepository
     {
         void Add(Task task);
     }

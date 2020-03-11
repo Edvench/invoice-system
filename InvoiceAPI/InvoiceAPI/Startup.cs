@@ -2,13 +2,17 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using InvoiceAPI.Framework.Db;
+using InvoiceAPI.Helper;
 using InvoiceAPI.Models.Invoce.Service;
 using InvoiceAPI.Models.Invoce.UseCase;
+using InvoiceAPI.Models.Task.Entity.Repository;
 using InvoiceAPI.Models.Task.Entity.UseCase;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -37,6 +41,12 @@ namespace InvoiceAPI
                        .AllowAnyMethod()
                        .AllowAnyHeader();
             }));
+
+            // получаем строку подключения из файла конфигурации
+            string connection = Configuration.GetConnectionString("DefaultConnection");
+            // добавляем контекст в качестве сервиса в приложение
+            services.AddDbContext<SolutionContext>(options =>
+                options.UseSqlServer(connection));
 
 
         }
@@ -74,6 +84,8 @@ namespace InvoiceAPI
             services.AddTransient<FindColumnNumber, FindColumnNumber>();
             services.AddTransient<WordFile, WordFile>();
             services.AddTransient<TaskService,TaskService>();
+            services.AddTransient<EFRepository, EFRepository>();
+            services.AddTransient<Task, Task>();
         }
     }
 }
