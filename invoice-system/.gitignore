@@ -8,7 +8,7 @@
 /bazel-out
 
 # App Enviroment
-/src/environments/enviroment.ts
+/src/environments/environment.ts
 
 # dependencies
 /node_modules
