@@ -43,13 +43,11 @@ namespace InvoiceAPI.Http.Controllers
             try {
                 Invoce invoce = this._service.createInvoce(reques);
                 this._service.generateWork(invoce);
-
                 return File(
                     System.IO.File.ReadAllBytes(this._wordFile.GetReadPath()),
                     "application/vnd.openxmlformats-officedocument.wordprocessingml.document"
                 );
             } 
-            
             catch (Exception e) {
                 return StatusCode((int)HttpStatusCode.BadRequest);
             }

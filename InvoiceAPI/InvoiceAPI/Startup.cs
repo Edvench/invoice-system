@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using InvoiceAPI.Models.Invoce.Service;
 using InvoiceAPI.Models.Invoce.UseCase;
+using InvoiceAPI.Models.Task.Entity.UseCase;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -72,6 +73,7 @@ namespace InvoiceAPI
             services.AddTransient<HourseExcelParser, HourseExcelParser>();
             services.AddTransient<FindColumnNumber, FindColumnNumber>();
             services.AddTransient<WordFile, WordFile>();
+            services.AddTransient<TaskService,TaskService>();
         }
     }
 }
