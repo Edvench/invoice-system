@@ -25,7 +25,7 @@ export class InvoiceService{
         var formData = this.setData.getFormData();///вытягиваем
         formData.append('Money', money);
 
-        return this.http.post(this.apiEndPoint + "/api/home/invoce", formData, {responseType: 'blob' }); 
+        return this.http.post(this.apiEndPoint + "/home/invoce", formData, {responseType: 'blob' }); 
     }
 
 

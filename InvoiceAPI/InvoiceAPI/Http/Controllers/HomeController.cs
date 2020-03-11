@@ -38,15 +38,21 @@ namespace InvoiceAPI.Http.Controllers
         }
 
         [HttpPost]
-        public FileContentResult Invoce([FromForm]InvoceReques reques)
+        public ActionResult Invoce([FromForm]InvoceReques reques)
         {
-            Invoce invoce = this._service.createInvoce(reques);
-            this._service.generateWork(invoce);
+            try {
+                Invoce invoce = this._service.createInvoce(reques);
+                this._service.generateWork(invoce);
 
-            return File(
-                System.IO.File.ReadAllBytes(this._wordFile.GetReadPath()),
-                "application/vnd.openxmlformats-officedocument.wordprocessingml.document"
-            );
+                return File(
+                    System.IO.File.ReadAllBytes(this._wordFile.GetReadPath()),
+                    "application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+                );
+            } 
+            
+            catch (Exception e) {
+                return StatusCode((int)HttpStatusCode.BadRequest);
+            }
         }
 
         [HttpPost]

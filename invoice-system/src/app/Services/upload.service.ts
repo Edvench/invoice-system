@@ -39,7 +39,7 @@ export class UploadService {
 
       // создайте запрос http-post и передайте форму
       // скажи это, чтобы сообщить о прогрессе загрузки
-      const req = new HttpRequest('POST', this.apiEndPoint + "/api/home/upload", formData, {
+      const req = new HttpRequest('POST', this.apiEndPoint + "/home/upload", formData, {
         reportProgress: true
       });
 

@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  domainUrl:'http://learn.platform.com.ua'
+  domainUrl:'http://learnapi.platform.com.ua/api'
 };
