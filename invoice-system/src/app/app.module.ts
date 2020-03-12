@@ -13,6 +13,12 @@ import { InvoiceComponent } from './invoice/invoice.component'
 import {InvoceRequest} from './Entity/invoice-request'
 import { RouterModule } from '@angular/router';
 import { Rout } from './Routing/rout';
+import { TaskComponent } from './Task/task.component';
+import { CreateTaskComponent } from './Task/create-task/create-task.component';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatNativeDateModule} from '@angular/material/';
+import { TaskService } from './Services/task-service';
+import { TaskRequest } from './Entity/task-request';
 
 
 
@@ -20,7 +26,9 @@ import { Rout } from './Routing/rout';
   declarations: [
     AppComponent,
     RaidComponent,
-    InvoiceComponent
+    InvoiceComponent,
+    TaskComponent,
+    CreateTaskComponent
   ],
   imports: [
     BrowserModule,
@@ -31,11 +39,16 @@ import { Rout } from './Routing/rout';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
     RouterModule.forRoot(Rout)
+    
   ],
   providers: [
     InvoiceService,
-    InvoceRequest
+    InvoceRequest,
+    TaskService,
+    TaskRequest
   ],
   bootstrap: [AppComponent]
 })

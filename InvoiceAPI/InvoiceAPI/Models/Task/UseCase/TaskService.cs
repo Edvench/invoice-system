@@ -19,7 +19,6 @@ namespace InvoiceAPI.Models.Task.Entity.UseCase
         public void Create(TaskRequest taskRequest)
         {
             Task task = Task.Create(
-                Guid.NewGuid().ToString(),
                 taskRequest.Money,
                 taskRequest.Title,
                 taskRequest.Description,

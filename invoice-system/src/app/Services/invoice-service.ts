@@ -14,8 +14,6 @@ export class InvoiceService{
 
     constructor(
         private http: HttpClient,
-        private request: InvoceRequest,
-        private upload:UploadService,
         private setData: GetFileService
         ){
             this.apiEndPoint = environment.domainUrl;

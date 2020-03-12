@@ -1,11 +1,11 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 using InvoiceAPI.Framework.Db;
 using InvoiceAPI.Helper;
 using InvoiceAPI.Models.Invoce.Service;
 using InvoiceAPI.Models.Invoce.UseCase;
+using InvoiceAPI.Models.Task.Entity;
 using InvoiceAPI.Models.Task.Entity.Repository;
 using InvoiceAPI.Models.Task.Entity.UseCase;
 using Microsoft.AspNetCore.Builder;

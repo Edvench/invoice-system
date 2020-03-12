@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.Globalization;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -15,6 +16,9 @@ namespace InvoiceAPI.Http.Request.Task
         [Required]
         public string Description { get; set; }
         [Required]
+        [DisplayFormat(DataFormatString = "{dd/M/yyyy hh:mm:ss}", ApplyFormatInEditMode = true)]
         public DateTime DateOfTask { get; set; }
+
+        //public DateTime d = DateTime.ParseExact(DateOfTask.ToString(), "MM/dd/yyyy hh:mm:ss tt", CultureInfo.InvariantCulture);
     }
 }

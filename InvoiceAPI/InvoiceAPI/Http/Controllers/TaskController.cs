@@ -25,7 +25,7 @@ namespace InvoiceAPI.Http.Controllers
         }
 
         [HttpPost]
-        public ActionResult Create(TaskRequest reques) {
+        public ActionResult Create([FromForm]TaskRequest reques) {
 
             try { 
                 this._taskService.Create(reques);
@@ -34,9 +34,6 @@ namespace InvoiceAPI.Http.Controllers
             } catch(Exception ex) {
                 return StatusCode((int)HttpStatusCode.BadRequest);
             }
-
-           
         }
-
     }
 }
