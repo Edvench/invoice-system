@@ -24,5 +24,17 @@ namespace InvoiceAPI.Models.Task.Entity.Repository
             }
         }
 
+        public IEnumerable<Task> GetAllTasks() {
+            List<Task> result = this._context.Tasks.Select(item => Task.Select(
+                item.Id,
+                item.Title,
+                item.Description,
+                item.Money,
+                item.DateFoTask
+                )).ToList();
+
+            return result;
+        }
+
     }
 }

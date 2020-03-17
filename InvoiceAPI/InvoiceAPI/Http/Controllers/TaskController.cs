@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
-using System.Threading.Tasks;
+//using System.Threading.Tasks;
+using InvoiceAPI.Models.Task.Entity;
 using InvoiceAPI.Http.Request.Task;
 using InvoiceAPI.Models.Task.Entity.Repository;
 using InvoiceAPI.Models.Task.Entity.UseCase;
@@ -34,6 +35,11 @@ namespace InvoiceAPI.Http.Controllers
             } catch(Exception ex) {
                 return StatusCode((int)HttpStatusCode.BadRequest);
             }
+        }
+
+        [HttpGet]
+        public IEnumerable<Task> GetTasks() {
+            return this._eFRepository.GetAllTasks();
         }
     }
 }

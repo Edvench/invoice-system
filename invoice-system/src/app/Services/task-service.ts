@@ -8,7 +8,6 @@ import { TaskRequest } from '../Entity/task-request';
 export class TaskService{
    
     private apiEndPoint: string;
-    // public validDate:string;
 
     constructor(
         private http: HttpClient,
@@ -17,17 +16,6 @@ export class TaskService{
     {
         this.apiEndPoint = environment.domainUrl;
     }
-
-
-    // formatData(data:Date){
-    //     const day = data.getDate();
-    //     const month = data.getMonth() + 1;
-    //     const year = data.getFullYear();
-        
-    //     this.validDate = day + '-' + month + "-" + year;
-    //     console.log(this.validDate);
-    //     return day + '-' + month + "-" + year;
-    // }
 
     postData(money:number, title:string, desc:string, date:string){
         var formData = new FormData();
@@ -43,6 +31,7 @@ export class TaskService{
         // formData.append('Money', money);
         return this.http.post(this.apiEndPoint + "/task/create", formData); 
     }
+
 
 
 }

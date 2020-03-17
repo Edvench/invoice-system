@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { environment } from 'src/environments/environment';
 
 @Component({
   moduleId:module.id,
@@ -8,9 +10,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TaskComponent implements OnInit {
 
-  constructor() { }
+  private apiEndPoint: string;
+
+  constructor(private http: HttpClient,) { 
+    this.apiEndPoint = environment.domainUrl;
+  }
 
   ngOnInit() {
-  }
+    this.http.get(this.apiEndPoint + "/task/getTasks").subscribe(
+      	(reslt) => {console.log(reslt)});
+ }  
 
 }

@@ -51,6 +51,19 @@ namespace InvoiceAPI.Models.Task.Entity
 
             return task;
         }
+
+        public static Task Select(Guid id, string title, string desc, double money, DateTime dateOfTask)
+        {
+            Task task = new Task();
+
+            task.Id = id;
+            task.Title = title;
+            task.Description = desc;
+            task.Money = money;
+            task.DateFoTask = dateOfTask;
+
+            return task;
+        }
     }
 
 
