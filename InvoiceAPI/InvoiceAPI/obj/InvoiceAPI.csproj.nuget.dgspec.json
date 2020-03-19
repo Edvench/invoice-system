@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Work Project\\Work Project\\InvoiceAPI\\InvoiceAPI\\InvoiceAPI.csproj": {}
+    "D:\\Work2\\invoice-system\\InvoiceAPI\\InvoiceAPI\\InvoiceAPI.csproj": {}
   },
   "projects": {
-    "D:\\Work Project\\Work Project\\InvoiceAPI\\InvoiceAPI\\InvoiceAPI.csproj": {
+    "D:\\Work2\\invoice-system\\InvoiceAPI\\InvoiceAPI\\InvoiceAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Work Project\\Work Project\\InvoiceAPI\\InvoiceAPI\\InvoiceAPI.csproj",
+        "projectUniqueName": "D:\\Work2\\invoice-system\\InvoiceAPI\\InvoiceAPI\\InvoiceAPI.csproj",
         "projectName": "InvoiceAPI",
-        "projectPath": "D:\\Work Project\\Work Project\\InvoiceAPI\\InvoiceAPI\\InvoiceAPI.csproj",
+        "projectPath": "D:\\Work2\\invoice-system\\InvoiceAPI\\InvoiceAPI\\InvoiceAPI.csproj",
         "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-        "outputPath": "D:\\Work Project\\Work Project\\InvoiceAPI\\InvoiceAPI\\obj\\",
+        "outputPath": "D:\\Work2\\invoice-system\\InvoiceAPI\\InvoiceAPI\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -83,7 +83,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.101\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.200\\RuntimeIdentifierGraph.json"
         }
       }
     }

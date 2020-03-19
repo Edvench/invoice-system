@@ -12,28 +12,28 @@ namespace InvoiceAPI.Models.Task.Entity
     {
         //public GuidAttribute(string guid);
         [Column("id", TypeName = "UNIQUEIDENTIFIER")]
-        public Guid Id { get; private set; }
+        public Guid Id { get; set; }
 
         [Required]
         [Column("money", TypeName = "money")]
-        public double Money { get; private set; }
+        public double Money { get;  set; }
         
         [Required]
         [Column("title", TypeName = "varchar(50)")]
-        public string Title { get; private set; }
+        public string Title { get;  set; }
 
         [Column("description", TypeName = "text")]
-        public string? Description { get; private set; }
+        public string? Description { get;  set; }
 
         [Column("date_fo_task", TypeName = "datetime2")]
         [DataType(DataType.DateTime)]
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
-        public DateTime DateFoTask { get; private set; }
+        public DateTime DateFoTask { get;  set; }
 
         [Column("created_at",TypeName = "datetime2")]
         [DataType(DataType.DateTime)]
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
-        public DateTime CreatedAt { get; private set ; } //DateTime.ParseExact(yourObject.ToString(), "MM/dd/yyyy hh:mm:ss tt", CultureInfo.InvariantCulture);
+        public DateTime CreatedAt { get;  set ; } //DateTime.ParseExact(yourObject.ToString(), "MM/dd/yyyy hh:mm:ss tt", CultureInfo.InvariantCulture);
 
         public static Task Create (
         double money,
@@ -63,6 +63,16 @@ namespace InvoiceAPI.Models.Task.Entity
             task.DateFoTask = dateOfTask;
 
             return task;
+        }
+
+        public bool isEqualeMoney(double money)
+        {
+            return this.Money == money;
+        }
+
+        public bool isEqualeTitle(string title)
+        {
+            return this.Title == title;
         }
     }
 

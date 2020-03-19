@@ -1,8 +1,10 @@
-<button mat-raised-button>Create new task</button>
+<button mat-raised-button (click) = "goCreateTaskLink()" >Create new task</button>
 
-<div class ="task">
-    <p class="task-title"></p>
-    <p class="task-description"></p>
-    <p class="task-money"></p>
-    <p class="task-date"></p>
-</div>
+<button mat-raised-button (click) = "getTasks()">View Tasks</button>
+
+<li *ngFor="let task of tasks">
+    <p class="task-title">{{task.title}}</p>
+    <p class="task-description">{{task.title}}</p>
+    <p class="task-money">{{task.title}}</p>
+    <p class="task-date">{{task.title}}</p>
+</li>

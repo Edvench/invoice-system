@@ -2,16 +2,16 @@ import {Injectable, ComponentFactoryResolver} from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 
 import { environment } from '../../environments/environment';
-import { TaskRequest } from '../Entity/task-request';
+import { Task } from '../Entity/task';
+import { Observable } from 'rxjs';
+
 
 @Injectable()
 export class TaskService{
-   
     private apiEndPoint: string;
 
     constructor(
         private http: HttpClient,
-        private taskrequst:TaskRequest
         )
     {
         this.apiEndPoint = environment.domainUrl;
@@ -32,6 +32,9 @@ export class TaskService{
         return this.http.post(this.apiEndPoint + "/task/create", formData); 
     }
 
-
-
+    getData(): Observable<any> {
+        let result;
+        result = this.http.get(this.apiEndPoint + "/task/getTasks")
+        return result;
+       }
 }

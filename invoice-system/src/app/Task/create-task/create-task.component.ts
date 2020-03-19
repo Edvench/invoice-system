@@ -35,7 +35,7 @@ export class CreateTaskComponent implements OnInit {
     const month = data.getMonth() + 1;
     const year = data.getFullYear();
     
-    this.validDate = day + '-' + month + "-" + year;
+    this.validDate = year + '-' + month + "-" + day;
     // console.log(this.validDate);
     return this.validDate ;
 }
