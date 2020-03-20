@@ -7,7 +7,7 @@ using System.Net.Http;
 //using System.Web.Http;
 using System.Net.Http.Headers;
 using System.Threading.Tasks;
-using InvoiceAPI.Http.Request;
+using InvoiceAPI.Http.Request.Task;
 using InvoiceAPI.Models.Invoce.Entity;
 using InvoiceAPI.Models.Invoce.Service;
 using InvoiceAPI.Models.Invoce.UseCase;

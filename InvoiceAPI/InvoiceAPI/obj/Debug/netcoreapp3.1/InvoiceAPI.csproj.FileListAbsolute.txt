@@ -277,7 +277,6 @@ D:\Work2\invoice-system\InvoiceAPI\InvoiceAPI\bin\Debug\netcoreapp3.1\runtimes\w
 D:\Work2\invoice-system\InvoiceAPI\InvoiceAPI\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.0\System.Runtime.Caching.dll
 D:\Work2\invoice-system\InvoiceAPI\InvoiceAPI\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.0\System.Runtime.Caching.dll
 D:\Work2\invoice-system\InvoiceAPI\InvoiceAPI\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
-D:\Work2\invoice-system\InvoiceAPI\InvoiceAPI\obj\Debug\netcoreapp3.1\InvoiceAPI.csprojAssemblyReference.cache
 D:\Work2\invoice-system\InvoiceAPI\InvoiceAPI\obj\Debug\netcoreapp3.1\InvoiceAPI.csproj.CoreCompileInputs.cache
 D:\Work2\invoice-system\InvoiceAPI\InvoiceAPI\obj\Debug\netcoreapp3.1\InvoiceAPI.MvcApplicationPartsAssemblyInfo.cache
 D:\Work2\invoice-system\InvoiceAPI\InvoiceAPI\obj\Debug\netcoreapp3.1\InvoiceAPI.AssemblyInfoInputs.cache
@@ -289,3 +288,4 @@ D:\Work2\invoice-system\InvoiceAPI\InvoiceAPI\obj\Debug\netcoreapp3.1\staticweba
 D:\Work2\invoice-system\InvoiceAPI\InvoiceAPI\obj\Debug\netcoreapp3.1\InvoiceAPI.dll
 D:\Work2\invoice-system\InvoiceAPI\InvoiceAPI\obj\Debug\netcoreapp3.1\InvoiceAPI.pdb
 D:\Work2\invoice-system\InvoiceAPI\InvoiceAPI\obj\Debug\netcoreapp3.1\InvoiceAPI.genruntimeconfig.cache
+D:\Work2\invoice-system\InvoiceAPI\InvoiceAPI\obj\Debug\netcoreapp3.1\InvoiceAPI.csprojAssemblyReference.cache

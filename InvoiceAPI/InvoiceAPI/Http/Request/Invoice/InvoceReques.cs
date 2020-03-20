@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace InvoiceAPI.Http.Request
+namespace InvoiceAPI.Http.Request.Task
 {
     public class InvoceReques
     {

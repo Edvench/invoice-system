@@ -9,6 +9,8 @@ using InvoiceAPI.Models.Task.Entity.Repository;
 using InvoiceAPI.Models.Task.Entity.UseCase;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using InvoiceAPI.Http.Request;
+using InvoiceAPI.Framework.Request;
 
 namespace InvoiceAPI.Http.Controllers
 {
@@ -38,8 +40,8 @@ namespace InvoiceAPI.Http.Controllers
         }
 
         [HttpGet]
-        public ActionResult GetTasks(int currentPage) {
-            return this.Ok(this._eFRepository.ListTask(currentPage));
+        public ActionResult GetTasks([FromQuery]TaskSearchRequest request, [FromQuery]TaskPaginationRequest paginator) {
+            return this.Ok(this._eFRepository.ListTask(request, paginator));
         }
     }
 }

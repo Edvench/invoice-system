@@ -30,7 +30,8 @@ export class TaskService{
     setCurrentPageValue(currentPage:number): Observable<any>{
         currentPage = currentPage + 1;
         const params = new HttpParams()
-        .set('currentPage',currentPage.toString())
+        .set('page', currentPage.toString())
+
         return this.http.get(this.apiEndPoint + "/task/getTasks?" + params);
     }
 

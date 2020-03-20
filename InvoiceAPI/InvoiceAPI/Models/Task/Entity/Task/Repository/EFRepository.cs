@@ -1,5 +1,8 @@
 ﻿using InvoiceAPI.Framework.Db;
 using InvoiceAPI.Framework.Provider;
+using InvoiceAPI.Framework.Request;
+using InvoiceAPI.Http.Request;
+using InvoiceAPI.Http.Request.Task;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -38,14 +41,16 @@ namespace InvoiceAPI.Models.Task.Entity.Repository
             return result;
         }
 
-        public BaseDataProvider<Task> ListTask(int currentPage)
+        public BaseDataProvider<Task> ListTask(TaskSearchRequest search, TaskPaginationRequest request)
         {
-            BaseDataProvider<Task> dataProvider = new BaseDataProvider<Task>(
-                this._context.Tasks,
-                currentPage
-            );
+            IQueryable<Task> query = this._context.Tasks;
 
-            return dataProvider.getCollection();
+            if (search.DataFrom != null && search.DataTo != null)
+            {
+                query = query.Where(t => t.DateFoTask >= search.DataFrom && t.DateFoTask <= search.DataTo);
+            }
+
+            return new BaseDataProvider<Task>(query, request);
         }
     }
 }
