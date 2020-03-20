@@ -38,12 +38,11 @@ namespace InvoiceAPI.Models.Task.Entity.Repository
             return result;
         }
 
-        public BaseDataProvider<Task> ListTask(double money, int page = 1)
+        public BaseDataProvider<Task> ListTask(int currentPage)
         {
             BaseDataProvider<Task> dataProvider = new BaseDataProvider<Task>(
-                this._context.Tasks.Where(x => x.Title == "task2"), //Все ахуєно робить ми неправильно скіпали запісі, кароч дата провайдер гатов!! юзай
-                page,
-                5
+                this._context.Tasks,
+                currentPage
             );
 
             return dataProvider.getCollection();

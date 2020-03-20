@@ -3,7 +3,6 @@ import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { Router } from '@angular/router';
 import { TaskService } from '../Services/task-service';
-import { Task } from '../Entity/task';
 
 @Component({
   moduleId:module.id,
@@ -12,15 +11,10 @@ import { Task } from '../Entity/task';
   styleUrls: ['task.component.css']
 })
 export class TaskComponent implements OnInit {
-  // @Output() moneyForInput:number;
-  // @Output() titleForInput:string;
-  // @Output() descriptionForInput:string;
-
-  // @Output() viewTask = new EventEmitter();
-
-  // @Input() dateForInput:Date = new Date();
 
   tasks: any;
+  currentPageNumber:number;
+  fullResponce:any;
 
   private apiEndPoint: string;
   
@@ -33,8 +27,7 @@ export class TaskComponent implements OnInit {
   }
 
   ngOnInit() {
-    // this.http.get(this.apiEndPoint + "/task/getTasks").subscribe(
-    //   	(reslt) => {console.log(reslt)});
+
  } 
  
  goCreateTaskLink(){
@@ -42,10 +35,20 @@ export class TaskComponent implements OnInit {
  }
 
  getTasks(){
-  this.tasks = this.taskService.getData().subscribe(
-    response => {this.tasks = response;console.log(this.tasks)}
-  );
-  
+  this.taskService.getData().subscribe(
+    response => {
+      this.tasks = response.collection;
+      this.fullResponce = response;
+      console.log(this.tasks)
+    });
+ }
+
+ moreTask(currentPage:number){
+  this.currentPageNumber = currentPage;
+  this.taskService.setCurrentPageValue(this.currentPageNumber).subscribe(
+    res=>this.currentPageNumber = res);
+    console.log(this.currentPageNumber)
+  // console.log(this.currentPageNumber)
  }
  
 }

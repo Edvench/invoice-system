@@ -4,7 +4,14 @@
 
 <li *ngFor="let task of tasks">
     <p class="task-title">{{task.title}}</p>
-    <p class="task-description">{{task.title}}</p>
-    <p class="task-money">{{task.title}}</p>
-    <p class="task-date">{{task.title}}</p>
+    <p class="task-description">{{task.description}}</p>
+    <p class="task-money">{{task.money}}</p>
+    <p class="task-date">{{task.dateFoTask}}</p>
 </li>
+
+<p *ngIf = "tasks">
+    <button mat-raised-button (click) = "moreTask(fullResponce.currentPage)">more</button>
+</p>
+
+
+

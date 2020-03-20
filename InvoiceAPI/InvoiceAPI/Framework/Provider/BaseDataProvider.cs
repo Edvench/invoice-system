@@ -1,7 +1,4 @@
-﻿using InvoiceAPI.Framework.Provider.Interface;
-using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 
 namespace InvoiceAPI.Framework.Provider
@@ -22,7 +19,7 @@ namespace InvoiceAPI.Framework.Provider
 
         public IQueryable<T> Query { get; set; }
 
-        public BaseDataProvider(IQueryable<T> query, int currentPage, int pageSize = 25)
+        public BaseDataProvider(IQueryable<T> query, int currentPage, int pageSize = 2)
         {
             this.Query = query;
             this.CurrentPage = currentPage;
@@ -32,13 +29,13 @@ namespace InvoiceAPI.Framework.Provider
         public BaseDataProvider<T> getCollection()
         {
             int skip = 0;
-            if (this.CurrentPage > 1)
+            if (this.CurrentPage > 0)
             {
                 skip = (this.CurrentPage * this.PageSize);
             }
 
             this.TotalCountRecord = this.Query.Count();
-            this.Collection = this.Query.Skip(skip).Take(this.PageSize).ToList();
+            this.Collection = this.Query.Skip(skip).Take(this.PageSize).ToList();///skip - пропускает определенное кол-во елементов,take - извлекает определенное кол-во ел.
             this.CurrentCountRecord = this.Collection.Count();
             this.PageCount = (this.TotalCountRecord / (this.PageSize <= 0 ? 1 : this.PageSize));
 

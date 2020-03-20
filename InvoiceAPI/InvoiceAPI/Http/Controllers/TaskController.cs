@@ -38,8 +38,8 @@ namespace InvoiceAPI.Http.Controllers
         }
 
         [HttpGet]
-        public ActionResult GetTasks() {
-            return this.Ok(this._eFRepository.ListTask(55.00));
+        public ActionResult GetTasks(int currentPage) {
+            return this.Ok(this._eFRepository.ListTask(currentPage));
         }
     }
 }
