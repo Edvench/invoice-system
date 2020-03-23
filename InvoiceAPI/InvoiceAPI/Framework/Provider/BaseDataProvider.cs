@@ -20,9 +20,9 @@ namespace InvoiceAPI.Framework.Provider
 
         public int CurrentPage { get; private set; }
 
-        public List<T> Collection { get; private set; }
+        public List<T> Collection { get; private set; }///Записи для одной страницы
 
-        private IQueryable<T> query { get; set; }
+        private IQueryable<T> query { get; set; }///Все записи из бд
 
 
         public BaseDataProvider(IQueryable<T> query, IPaginator paginator)

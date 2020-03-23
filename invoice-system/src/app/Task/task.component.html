@@ -1,6 +1,14 @@
 <button mat-raised-button (click) = "goCreateTaskLink()" >Create new task</button>
 
-<button mat-raised-button (click) = "getTasks()">View Tasks</button>
+<button mat-raised-button (click) = "getTasks(0)">View Tasks</button>
+
+<p *ngIf = "tasks.length">
+    <mat-form-field class="search-input">
+        <mat-label>Please, enter title for search</mat-label>
+        <input matInput required maxlength="256" 
+         name="name2" [(ngModel)]="titleFromSearch" />
+      </mat-form-field>
+</p>
 
 <li *ngFor="let task of tasks">
     <p class="task-title">{{task.title}}</p>
@@ -9,8 +17,8 @@
     <p class="task-date">{{task.dateFoTask}}</p>
 </li>
 
-<p *ngIf = "tasks">
-    <button mat-raised-button (click) = "moreTask(fullResponce.currentPage)">more</button>
+<p *ngIf = "tasks.length">
+    <button mat-raised-button (click) = "getTasks(fullResponce.currentPage)">more</button>
 </p>
 
 

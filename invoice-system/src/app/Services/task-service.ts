@@ -2,6 +2,7 @@ import {Injectable, ComponentFactoryResolver} from '@angular/core';
 import {HttpClient, HttpHeaders, HttpParams} from '@angular/common/http';
 import { environment } from '../../environments/environment';
 import { Observable } from 'rxjs';
+import { Task } from '../Entity/task';
 
 
 @Injectable()
@@ -13,22 +14,22 @@ export class TaskService{
         this.apiEndPoint = environment.domainUrl;
     }
 
-    postData(money:number, title:string, desc:string, date:string){
+    createTaskRequest(task:Task):Observable<any>{
         var formData = new FormData();
 
-        formData.append('Money', money.toString());
-        formData.append('Title', title);
-        formData.append('Description', desc);
-        formData.append('DateOfTask', date);
+        formData.append('Money', task.money.toString());
+        formData.append('Title', task.title);
+        formData.append('Description', task.description);
+        formData.append('DateOfTask', task.dateOfTask.toString());
         return this.http.post(this.apiEndPoint + "/task/create", formData); 
     }
 
-    getData(): Observable<any> {
+    getTasksResponce(): Observable<any> {
         return this.http.get(this.apiEndPoint + "/task/getTasks")
     }
 
-    setCurrentPageValue(currentPage:number): Observable<any>{
-        currentPage = currentPage + 1;
+    getMoreTasksResponce(currentPage:number): Observable<any>{
+        currentPage = currentPage;
         const params = new HttpParams()
         .set('page', currentPage.toString())
 

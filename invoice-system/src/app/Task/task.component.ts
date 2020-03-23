@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { Router } from '@angular/router';
 import { TaskService } from '../Services/task-service';
+import { Task } from '../Entity/task';
 
 @Component({
   moduleId:module.id,
@@ -12,9 +13,10 @@ import { TaskService } from '../Services/task-service';
 })
 export class TaskComponent implements OnInit {
 
-  tasks: any;
+  tasks:Task[] = [];
   currentPageNumber:number;
   fullResponce:any;
+  @Input() titleFromSearch:string;
 
   private apiEndPoint: string;
   
@@ -34,21 +36,25 @@ export class TaskComponent implements OnInit {
   this.router.navigate(['createTask']);
  }
 
- getTasks(){
-  this.taskService.getData().subscribe(
+//  getTasks(){
+//   this.taskService.getTasksResponce().subscribe(
+//     response => {
+//       this.tasks = response.collection;///Добавляем массив тасков c ответа сервера в наш массив тасков
+//       this.fullResponce = response;
+//       console.log(this.tasks)
+//     });
+//  }
+
+ getTasks(currentPage:number){
+  this.currentPageNumber = currentPage + 1;
+  this.taskService.getMoreTasksResponce(this.currentPageNumber).subscribe(
     response => {
-      this.tasks = response.collection;
       this.fullResponce = response;
+      response.collection.forEach(element => {
+        this.tasks.push(element);
+      });
       console.log(this.tasks)
     });
- }
-
- moreTask(currentPage:number){
-  this.currentPageNumber = currentPage;
-  this.taskService.setCurrentPageValue(this.currentPageNumber).subscribe(
-    res=>this.currentPageNumber = res);
-    console.log(this.currentPageNumber)
-  // console.log(this.currentPageNumber)
  }
  
 }

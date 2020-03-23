@@ -5,9 +5,12 @@
       <input matInput required pattern="^\d{1,}$" maxlength="256" 
        name="name" [(ngModel)]="moneyFromInput" />
       <mat-hint align="start">Please,input your <strong>raid</strong></mat-hint>
-      <mat-error *ngIf="numberFormControl.hasError('required')">
+      <!-- <mat-error *ngIf="validation.hasError('pattern')">
         Please enter a <strong>raid</strong>
-      </mat-error>
+      </mat-error> -->
+      <!-- <mat-error *ngIf="validation.hasError('required')">
+        Rade is <strong>required</strong>
+      </mat-error> -->
     </mat-form-field>
 
     <mat-form-field class="task-input">
@@ -15,6 +18,9 @@
         <input matInput required maxlength="256" 
          name="name2" [(ngModel)]="titleFromInput" />
         <mat-hint align="start">Please,input <strong>title</strong> of task</mat-hint>
+        <mat-error *ngIf="validation.hasError('required')">
+          Please enter a <strong>raid</strong>
+        </mat-error>
       </mat-form-field>
 
       <mat-form-field class="task-input">
@@ -31,7 +37,7 @@
         <mat-datepicker touchUi #picker ></mat-datepicker>
       </mat-form-field>
 
-      <button mat-raised-button (click) = "getTask()">Create</button>
+      <button mat-raised-button (click) = "addTask()">Create</button>
 </form>
 </div>
 
