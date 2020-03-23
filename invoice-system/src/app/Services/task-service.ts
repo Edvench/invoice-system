@@ -29,9 +29,15 @@ export class TaskService{
     }
 
     getMoreTasksResponce(currentPage:number): Observable<any>{
-        currentPage = currentPage;
         const params = new HttpParams()
         .set('page', currentPage.toString())
+
+        return this.http.get(this.apiEndPoint + "/task/getTasks?" + params);
+    }
+
+    getTasksFromFilter(title:string): Observable<any>{
+        const params = new HttpParams()
+        .set('title', title)
 
         return this.http.get(this.apiEndPoint + "/task/getTasks?" + params);
     }

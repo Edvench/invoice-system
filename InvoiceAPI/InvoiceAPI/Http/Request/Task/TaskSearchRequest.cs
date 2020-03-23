@@ -12,6 +12,8 @@ namespace InvoiceAPI.Http.Request.Task
         public DateTime? DataFrom { get; set; }
 
         [Display(Name = "dataTo")]
-        public DateTime? DataTo { get; set; } 
+        public DateTime? DataTo { get; set; }
+        [Display(Name = "title")]
+        public string Title { get; set; }
     }
 }

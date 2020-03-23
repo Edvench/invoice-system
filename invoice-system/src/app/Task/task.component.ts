@@ -36,16 +36,7 @@ export class TaskComponent implements OnInit {
   this.router.navigate(['createTask']);
  }
 
-//  getTasks(){
-//   this.taskService.getTasksResponce().subscribe(
-//     response => {
-//       this.tasks = response.collection;///Добавляем массив тасков c ответа сервера в наш массив тасков
-//       this.fullResponce = response;
-//       console.log(this.tasks)
-//     });
-//  }
-
- getTasks(currentPage:number){
+ getTasksResponce(currentPage:number):any{
   this.currentPageNumber = currentPage + 1;
   this.taskService.getMoreTasksResponce(this.currentPageNumber).subscribe(
     response => {
@@ -53,8 +44,24 @@ export class TaskComponent implements OnInit {
       response.collection.forEach(element => {
         this.tasks.push(element);
       });
+      console.log(this.fullResponce);
       console.log(this.tasks)
+      return this.fullResponce
     });
  }
- 
+
+ getFilterTasksResponce(title:string){
+   this.titleFromSearch = title;
+  if(this.titleFromSearch !=null)
+  {
+    this.taskService.getTasksFromFilter(this.titleFromSearch).subscribe(
+      response => {
+        this.fullResponce = response;
+        response.collection.forEach(element => {
+          this.tasks.splice(0,this.tasks.length,element);
+      });
+    console.log(this.tasks);
+    });
+  }
+ }
 }
