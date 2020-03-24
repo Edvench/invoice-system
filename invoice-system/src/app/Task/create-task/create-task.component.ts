@@ -49,7 +49,6 @@ setFormatForData(data:Date){
   const year = data.getFullYear();
   
   this.validDate = year + '-' + month + "-" + day;
-  // console.log(this.validDate);
   return this.validDate ;
 }
 

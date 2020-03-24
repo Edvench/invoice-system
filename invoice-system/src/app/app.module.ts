@@ -19,6 +19,8 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatNativeDateModule} from '@angular/material/';
 import { TaskService } from './Services/task-service';
 import { TaskRequest } from './Entity/task-request';
+import { NgxDaterangepickerMd } from 'ngx-daterangepicker-material';
+import { DatePickerComponent } from './Task/date-picker/date-picker.component';
 
 
 
@@ -28,7 +30,8 @@ import { TaskRequest } from './Entity/task-request';
     RaidComponent,
     InvoiceComponent,
     TaskComponent,
-    CreateTaskComponent
+    CreateTaskComponent,
+    DatePickerComponent
   ],
   imports: [
     BrowserModule,
@@ -41,6 +44,7 @@ import { TaskRequest } from './Entity/task-request';
     HttpClientModule,
     MatDatepickerModule,
     MatNativeDateModule,
+    NgxDaterangepickerMd.forRoot(),
     RouterModule.forRoot(Rout)
     
   ],
@@ -48,7 +52,8 @@ import { TaskRequest } from './Entity/task-request';
     InvoiceService,
     InvoceRequest,
     TaskService,
-    TaskRequest
+    TaskRequest,
+    DatePickerComponent
   ],
   bootstrap: [AppComponent]
 })

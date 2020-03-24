@@ -50,6 +50,12 @@ namespace InvoiceAPI.Models.Task.Entity.Repository
                 query = query.Where(t => t.DateFoTask >= search.DataFrom && t.DateFoTask <= search.DataTo);
             }
 
+            //if (search.DataFrom != null)
+            //{
+            //    query = query.Where(t => t.DateFoTask >= search.DataFrom);
+            //}
+
+
             if (search.Title != null)
             {
                 query = query.Where(t => t.Title == search.Title);

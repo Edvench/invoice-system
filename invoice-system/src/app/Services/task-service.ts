@@ -42,5 +42,21 @@ export class TaskService{
         return this.http.get(this.apiEndPoint + "/task/getTasks?" + params);
     }
 
+    getTasksDataFromFilter(dataFrom:string,dataTo:string): Observable<any>{
+        const params = new HttpParams()
+        .set('dataFrom', dataFrom)
+        .set('dataTo', dataTo)
+
+        return this.http.get(this.apiEndPoint + "/task/getTasks?" + params);
+    }
+
+    // getTasksDataFromFilter(dataFrom:string): Observable<any>{
+    //     const params = new HttpParams()
+    //     .set('dataFrom', dataFrom)
+        
+
+    //     return this.http.get(this.apiEndPoint + "/task/getTasks?" + params);
+    // }
+
     
 }
