@@ -1,39 +1,36 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { InvoiceService } from '../Services/invoice-service';
 import { RaidComponent } from './raid/raid.component';
-import { DialogComponent } from './upload/dialog/dialog.component';
-import { UploadComponent } from './upload/upload.component';
-import { UploadService } from '../Services/upload.service';
 import { GetFileService } from '../Services/get-file.service';
 import { InvoceRequest } from '../Entity/invoice-request';
+import { Router } from '@angular/router';
 
 @Component({
   moduleId:module.id,
   selector: 'app-invoice',
   templateUrl: 'invoice.component.html',
-  styleUrls: ['invoice.component.css']
+  styleUrls: ['invoice.component.css',
+               '../Styles/global.scss']
 })
 export class InvoiceComponent implements OnInit {
   @ViewChild(RaidComponent, {static: false})
   private raidComponent: RaidComponent;///Получили дочерний компонент в родительском
+  private request: InvoceRequest = new InvoceRequest;
+  public file :Set<File>;
+  public money: number;
 
   constructor(
     private invoiceService:InvoiceService,
-    private fileService:GetFileService
+    private fileService:GetFileService,
+    private router: Router,
   ) { }
-
-  request: InvoceRequest = new InvoceRequest;
-
 
   ngOnInit() {
   }
 
-  public file :Set<File>;
-  public money: number;
-
-//   submit(){
-//     this.invoiceService.postData()
-// }
+  goTaskComponent() {
+    this.router.navigate(['task']);
+  }
 
   public getInvoice(){
     console.log(this.raidComponent.moneyFromInput,this.fileService.getFile());
@@ -43,10 +40,8 @@ export class InvoiceComponent implements OnInit {
       (response: any) => {
         const blob = new Blob([response],{ type: 'application/vnd.openxmlformats-officedocument.wordprocessingml.document' });
         const url  = window.URL.createObjectURL(blob);
-
         window.open(url);
       }
     );
   }
-
 }

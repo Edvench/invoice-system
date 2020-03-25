@@ -10,7 +10,8 @@ import { DatePickerComponent } from './date-picker/date-picker.component';
   moduleId: module.id,
   selector: 'app-task',
   templateUrl: 'task.component.html',
-  styleUrls: ['task.component.css']
+  styleUrls: ['task.component.scss',
+              '../Styles/global.scss']
 })
 export class TaskComponent implements OnInit {
 

@@ -1,0 +1,20 @@
+.container{
+  margin-top: 10%;
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto; 
+}
+
+.button-wrapper{
+    margin: 15px;
+}
+
+.section{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-width: 30%;
+    margin-left: auto;
+    margin-right: auto;
+}

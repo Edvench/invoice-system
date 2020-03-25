@@ -1,29 +1,37 @@
-<button mat-raised-button (click)="goCreateTaskLink()">Create new task</button>
+<div class="container">
+    <div class="section">
+        <div class="button-section">
+            <button class="button-wrapper" mat-raised-button (click)="goCreateTaskLink()">Create new task</button>
+            <button class="button-wrapper" mat-raised-button (click)="getTasksResponce(0)">View Tasks</button>
+        </div>
 
-<button mat-raised-button (click)="getTasksResponce(0)">View Tasks</button>
-
-<p *ngIf="tasks.length">
-    <mat-form-field class="search-input">
-        <mat-label>Please, enter title for search</mat-label>
-        <input matInput required maxlength="256" name="name2" [(ngModel)]="titleFromSearch"
-            (ngModelChange)="getFilterTasksResponce()" />
-    </mat-form-field>
-</p>
-
-<form class="task-form" *ngIf="tasks.length">
-    <app-date-picker fieldName="validDateFrom" (notify)='onNotify($event)'></app-date-picker>
-    <app-date-picker fieldName="validDateTo" (notify)='onNotify($event)'></app-date-picker>
-    <button mat-raised-button (click)="searchWithData()">Search Data</button>
-</form>
+        <form *ngIf="tasks.length">
+            <div class="datepicker-form">
+                <app-date-picker fieldName="validDateFrom" (notify)='onNotify($event)'></app-date-picker>
+                <app-date-picker class="datepicker-right" fieldName="validDateTo" (notify)='onNotify($event)'></app-date-picker>
+            </div>
+            <button mat-raised-button (click)="searchWithData()">Search Data</button>
+        </form>
 
 
-<li *ngFor="let task of tasks">
-    <p class="task-title">{{task.title}}</p>
-    <p class="task-description">{{task.description}}</p>
-    <p class="task-money">{{task.money}}</p>
-    <p class="task-date">{{task.dateFoTask}}</p>
-</li>
+        <p *ngIf="tasks.length">
+            <mat-form-field class="search-input">
+                <mat-label>Please, enter title for search</mat-label>
+                <input matInput required maxlength="256" name="name2" [(ngModel)]="titleFromSearch"
+                    (ngModelChange)="getFilterTasksResponce(titleFromSearch)" />
+            </mat-form-field>
+        </p>
 
-<p *ngIf="tasks.length">
-    <button mat-raised-button (click)="getTasksResponce(fullResponce.currentPage)">more</button>
-</p>
+
+        <li *ngFor="let task of tasks">
+            <p class="task-title">{{task.title}}</p>
+            <p class="task-description">{{task.description}}</p>
+            <p class="task-money">{{task.money}}</p>
+            <p class="task-date">{{task.dateFoTask}}</p>
+        </li>
+
+        <p *ngIf="tasks.length">
+            <button mat-raised-button (click)="getTasksResponce(fullResponce.currentPage)">more</button>
+        </p>
+    </div>
+</div>

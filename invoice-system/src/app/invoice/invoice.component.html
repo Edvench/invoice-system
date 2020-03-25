@@ -1,7 +1,8 @@
-<div class = "invoice-container">
-    <app-upload></app-upload>
-    <app-raid></app-raid>
-    <div class="raid-button-container">
-        <button mat-raised-button  (click)="getInvoice()">Generate invoice</button>
+<div class="container">
+    <div class="section">
+        <app-upload></app-upload>
+        <app-raid></app-raid>
+        <button class="button-wrapper" mat-raised-button (click)="getInvoice()">Generate invoice</button>
+        <button class="button-wrapper" mat-raised-button (click)="goTaskComponent()">Task Component</button>
     </div>
 </div>
