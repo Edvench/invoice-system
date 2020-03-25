@@ -4,7 +4,6 @@ import { environment } from 'src/environments/environment';
 import { Router } from '@angular/router';
 import { TaskService } from '../Services/task-service';
 import { Task } from '../Entity/task';
-import { Moment } from 'moment';
 import { DatePickerComponent } from './date-picker/date-picker.component';
 
 @Component({
@@ -15,25 +14,18 @@ import { DatePickerComponent } from './date-picker/date-picker.component';
 })
 export class TaskComponent implements OnInit {
 
-  // @Input() selected: {start: Moment, end: Moment};
-  // validDateFrom:string;
-  // validDateTo:string;
-  dateFromInput: string;
-  dateTo: string;
-
-  tasks: Task[] = [];
-  currentPageNumber: number;
-  fullResponce: any;
-  @Input() titleFromSearch: string;
-
+  @Input() private titleFromSearch: string;
+  private validDateFrom: string;
+  private validDateTo: string;
+  private tasks: Task[] = [];
+  private currentPageNumber: number;
+  private fullResponce: any;
   private apiEndPoint: string;
-
 
   constructor(private http: HttpClient,
     private router: Router,
     private taskService: TaskService,
-    private picker: DatePickerComponent
-  ) {
+    private picker: DatePickerComponent) {
     this.apiEndPoint = environment.domainUrl;
   }
 
@@ -73,43 +65,16 @@ export class TaskComponent implements OnInit {
     }
   }
 
-
-
-  setFormatFor(dataFrom: Date) {
-    // const dayFrom = dataFrom.getDate();
-    // const monthFrom = dataFrom.getMonth() + 1;
-
-    // const yearFrom = dataFrom.getFullYear();
-
-
-    // this.validDateFrom = yearFrom + '-' + monthFrom + "-" + dayFrom ;
-    // console.log(this.validDateFrom)
-    // this.validDateFrom = this.picker.setFormatFor(dataFrom);
-
-    // return this.validDateFrom;
-  }
-
-  setFormatTo(dataTo: Date) {
-    // const dayTo = dataTo.getDate();
-    // const monthTo = dataTo.getMonth() + 1;
-    // const yearTo = dataTo.getFullYear();
-
-    // this.validDateTo = yearTo + '-' + monthTo + "-" +dayTo ;
-    // console.log(this.validDateTo)
-    // this.validDateTo = this.picker.setFormatFor(dataTo);
-    // return this.validDateTo;
-  }
-
   onNotify(params):void {
-    if (params.fieldName === 'dateFromInput') {
-      this.dateFromInput = params.date;
-    } else if (params.fieldName === 'dateTo') {
-      this.dateTo = params.date;
+    if (params.fieldName === 'validDateFrom') {
+      this.validDateFrom = params.date;
+    } else if (params.fieldName === 'validDateTo') {
+      this.validDateTo = params.date;
     }
   }
 
   searchWithData() {
-    this.taskService.getTasksDataFromFilter(this.dateFromInput.toString(), this.dateTo.toString()).subscribe(
+    this.taskService.getTasksDataFromFilter(this.validDateFrom.toString(), this.validDateTo.toString()).subscribe(
       response => {
         this.fullResponce = response;
         this.tasks = response.collection;

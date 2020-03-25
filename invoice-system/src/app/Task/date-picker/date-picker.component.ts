@@ -12,18 +12,21 @@ import { Component, OnInit, Input, Injectable, EventEmitter, Output } from '@ang
 
 export class DatePickerComponent implements OnInit {
   @Input() fieldName:string;
-  @Output() notify: EventEmitter<object> = new EventEmitter<object>();
+  @Input() dataFromInput:Date;
+  @Output() notify: EventEmitter<object> = new EventEmitter<object>();///Обработчик событий(вы-
+  //зывает функцию в род. компоненте)
 
   constructor() {}
   ngOnInit() {}
 
   /// Форматирует любой параметр с типом Date в string и передает в 
   ///функцию(обработчик событий) контекста род.класса
-  setFormatFor(date:Date){
-    const dayFrom = date.getDate();
-    const monthFrom = date.getMonth() + 1;
-    const yearFrom = date.getFullYear();
+  convertDataToString(dateObjectValue:Date){
+    const dayFrom = dateObjectValue.getDate();
+    const monthFrom = dateObjectValue.getMonth() + 1;
+    const yearFrom = dateObjectValue.getFullYear();
     const resultDate = yearFrom + '-' + monthFrom + "-" + dayFrom ;
+    console.log({date: resultDate, fieldName: this.fieldName})
     this.notify.emit({date: resultDate, fieldName: this.fieldName});
   }
 }
