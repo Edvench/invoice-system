@@ -27,15 +27,7 @@
       </mat-error>
     </mat-form-field>
 
-    <mat-form-field class="example-full-width" [formGroup]="formGroup">
-      <mat-label>Choose a date</mat-label>
-      <input matInput [matDatepicker]="picker" name="name4" formControlName="dataControl" >
-      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-      <mat-datepicker touchUi #picker></mat-datepicker>
-      <mat-error *ngIf="formGroup.controls['dataControl'].invalid && formGroup.controls['dataControl'].touched">
-        Please enter a <strong>data</strong>
-      </mat-error>
-    </mat-form-field>
+    <app-date-picker (notifyDatePicker)='getDataFromDatePicker($event)'></app-date-picker>
 
     <button mat-raised-button [disabled]="formGroup.invalid" (click)="addTask()">Create</button>
   </form>

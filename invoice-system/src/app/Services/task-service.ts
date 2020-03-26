@@ -20,7 +20,7 @@ export class TaskService {
         formData.append('Money', task.money.toString());
         formData.append('Title', task.title);
         formData.append('Description', task.description);
-        formData.append('DateOfTask', task.dateOfTask.toString());
+        formData.append('DateOfTask', task.dateOfTask);
         return this.http.post(this.apiEndPoint + "/task/create", formData);
     }
 

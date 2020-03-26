@@ -66,6 +66,7 @@ export class TaskComponent implements OnInit {
     }
   }
 
+
   onNotify(params):void {
     if (params.fieldName === 'validDateFrom') {
       this.validDateFrom = params.date;
@@ -75,7 +76,7 @@ export class TaskComponent implements OnInit {
   }
 
   searchWithData() {
-    this.taskService.getTasksDataFromFilter(this.validDateFrom.toString(), this.validDateTo.toString()).subscribe(
+    this.taskService.getTasksDataFromFilter(this.validDateFrom, this.validDateTo).subscribe(
       response => {
         this.fullResponce = response;
         this.tasks = response.collection;
