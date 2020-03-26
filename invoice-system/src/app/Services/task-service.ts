@@ -15,6 +15,8 @@ export class TaskService {
 
     createTaskRequest(task: Task): Observable<any> {
         var formData = new FormData();
+        // if(task.money){task.money = formData.append('Money', task.money.toString());}
+        
         formData.append('Money', task.money.toString());
         formData.append('Title', task.title);
         formData.append('Description', task.description);

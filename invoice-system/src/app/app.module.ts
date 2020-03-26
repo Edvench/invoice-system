@@ -21,6 +21,7 @@ import { TaskService } from './Services/task-service';
 import { TaskRequest } from './Entity/task-request';
 import { NgxDaterangepickerMd } from 'ngx-daterangepicker-material';
 import { DatePickerComponent } from './Task/date-picker/date-picker.component';
+import { Task } from './Entity/task';
 
 
 
@@ -53,7 +54,8 @@ import { DatePickerComponent } from './Task/date-picker/date-picker.component';
     InvoceRequest,
     TaskService,
     TaskRequest,
-    DatePickerComponent
+    DatePickerComponent,
+    Task
   ],
   bootstrap: [AppComponent]
 })
