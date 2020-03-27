@@ -27,7 +27,7 @@ namespace InvoiceAPI.Models.Invoce.UseCase
         public Invoce.Entity.Invoce createInvoce(InvoceReques reques)
         {
             var filePath = Path.GetTempFileName();//Получаем времений путь до файла
-            Invoce.Entity.Invoce invice = null; //создаем екземпляр инвойса 
+            Invoce.Entity.Invoce invoice = null; //создаем екземпляр инвойса 
 
             using (var stream = new FileStream(filePath, FileMode.Create)) //открываем файл в потоке
             {
@@ -49,18 +49,29 @@ namespace InvoiceAPI.Models.Invoce.UseCase
 
                 int column = this._findColumn.Find(sheet.GetRow(0), "Hours");///находим нужную колонку
 
-                invice = new Invoce.Entity.Invoce(
+                invoice = new Invoce.Entity.Invoce(
                     reques.Money, //передаєм в конструктор инфойса деньги
-                    this._hourseParser.Parse(sheet, column) //передаем в конструктор часы, спаршенные сервисом
+                    this._hourseParser.Parse(sheet, column), //передаем в конструктор часы, спаршенные сервисом
+                    reques.Street,
+                    reques.BuildNumber,
+                    reques.City,
+                    reques.Country,
+                    reques.IndexCity,
+                    reques.TelephoneNumber,
+                    reques.EMail,
+                    reques.Name,
+                    reques.LastName,
+                    reques.Description,
+                    reques.Date.ToString()
                 );
             }
 
-            if (invice == null)
+            if (invoice == null)
             {
                 throw new Exception("Inove is not build!");
             }
 
-            return invice;
+            return invoice;
         }
 
         public void generateWork(Invoce.Entity.Invoce invoce)
@@ -69,8 +80,9 @@ namespace InvoiceAPI.Models.Invoce.UseCase
                 XWPFTable table = doc.CreateTable(3, 3);
 
                 table.GetRow(1).GetCell(1).SetText(invoce.ToString());
+                table.GetRow(1).GetCell(1).SetText(invoce.getFIO());
 
-                XWPFTableCell c1 = table.GetRow(0).GetCell(0);
+            XWPFTableCell c1 = table.GetRow(0).GetCell(0);
                 XWPFParagraph p1 = c1.AddParagraph();   //don't use doc.CreateParagraph
                 XWPFRun r1 = p1.CreateRun();
                 r1.SetText("This is test table contents");
@@ -78,7 +90,7 @@ namespace InvoiceAPI.Models.Invoce.UseCase
                 r1.FontFamily = "Courier";
                 r1.SetUnderline(UnderlinePatterns.DotDotDash);
                 r1.SetTextPosition(100);
-                c1.SetColor("FF0000");
+                //c1.SetColor("FF0000");
 
                 table.GetRow(2).GetCell(2).SetText("only text");
 

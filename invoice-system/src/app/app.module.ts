@@ -5,7 +5,6 @@ import {HttpClientModule} from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { UploadModule } from './invoice/upload/upload.module';
 import {MatInputModule} from '@angular/material/input';
-import { RaidComponent } from '../app/invoice/raid/raid.component';
 import {MatButtonModule} from '@angular/material/button';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {InvoiceService} from './Services/invoice-service';
@@ -18,7 +17,6 @@ import { CreateTaskComponent } from './Task/create-task/create-task.component';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatNativeDateModule} from '@angular/material/';
 import { TaskService } from './Services/task-service';
-import { TaskRequest } from './Entity/task-request';
 import { NgxDaterangepickerMd } from 'ngx-daterangepicker-material';
 import { DatePickerComponent } from './Task/date-picker/date-picker.component';
 import { Task } from './Entity/task';
@@ -28,7 +26,6 @@ import { Task } from './Entity/task';
 @NgModule({
   declarations: [
     AppComponent,
-    RaidComponent,
     InvoiceComponent,
     TaskComponent,
     CreateTaskComponent,
@@ -53,7 +50,6 @@ import { Task } from './Entity/task';
     InvoiceService,
     InvoceRequest,
     TaskService,
-    TaskRequest,
     DatePickerComponent,
     Task
   ],

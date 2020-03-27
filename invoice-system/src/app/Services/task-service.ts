@@ -2,7 +2,7 @@ import { Injectable, ComponentFactoryResolver } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { environment } from '../../environments/environment';
 import { Observable } from 'rxjs';
-import { Task } from '../Entity/task';
+
 
 
 @Injectable()
@@ -13,14 +13,14 @@ export class TaskService {
         this.apiEndPoint = environment.domainUrl;
     }
 
-    createTaskRequest(task: Task): Observable<any> {
+    createTaskRequest(money:number,title:string,description:string,data:string): Observable<any> {
         var formData = new FormData();
         // if(task.money){task.money = formData.append('Money', task.money.toString());}
         
-        formData.append('Money', task.money.toString());
-        formData.append('Title', task.title);
-        formData.append('Description', task.description);
-        formData.append('DateOfTask', task.dateOfTask);
+        formData.append('Money', money.toString());
+        formData.append('Title', title);
+        formData.append('Description', description);
+        formData.append('DateOfTask', data);
         return this.http.post(this.apiEndPoint + "/task/create", formData);
     }
 

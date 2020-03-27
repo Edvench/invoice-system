@@ -1,22 +1,14 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
 using System.Net;
 using System.Net.Http;
-//using System.Web.Http;
-using System.Net.Http.Headers;
-using System.Threading.Tasks;
 using InvoiceAPI.Http.Request.Task;
 using InvoiceAPI.Models.Invoce.Entity;
 using InvoiceAPI.Models.Invoce.Service;
 using InvoiceAPI.Models.Invoce.UseCase;
-using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
 
-// For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace InvoiceAPI.Http.Controllers
 {

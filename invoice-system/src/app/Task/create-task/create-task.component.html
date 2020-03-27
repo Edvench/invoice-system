@@ -4,8 +4,11 @@
       <mat-label>Raid</mat-label>
       <input formControlName="raidControl" matInput />
       <mat-hint align="start">Please,input your <strong>raid</strong></mat-hint>
-      <mat-error *ngIf="formGroup.controls['raidControl'].invalid && formGroup.controls['raidControl'].touched">
+      <mat-error *ngIf="formGroup.controls['raidControl'].hasError('required') && formGroup.controls['raidControl'].touched">
         Please enter a <strong>raid</strong>
+      </mat-error>
+      <mat-error *ngIf="formGroup.controls['raidControl'].hasError('pattern') && formGroup.controls['raidControl'].touched">
+        Raid must consist of <strong>numbers</strong>
       </mat-error>
     </mat-form-field>
 
@@ -26,9 +29,9 @@
         Please enter a <strong>description</strong>
       </mat-error>
     </mat-form-field>
-
-    <app-date-picker (notifyDatePicker)='getDataFromDatePicker($event)'></app-date-picker>
-
+    
+        <app-date-picker  (notifyDatePicker)='getDataFromDatePicker($event)'></app-date-picker>
+    
     <button mat-raised-button [disabled]="formGroup.invalid" (click)="addTask()">Create</button>
   </form>
 </div>

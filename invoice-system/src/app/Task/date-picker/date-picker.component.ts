@@ -12,9 +12,8 @@ import { FormControl, Validators, FormGroup, FormBuilder } from '@angular/forms'
 })
 
 export class DatePickerComponent implements OnInit {
-  @Input()
-  public item: FormControl;
-  @Input() fieldName:string;
+
+  @Input() fieldName:string;///кастомный параметр для имя поля(определ.в task.component как dataFrom DatatTO)
   @Output() notifyDatePicker: EventEmitter<object> = new EventEmitter<object>();///Обработчик событий(вы-
   //зывает функцию в род. компоненте)
 
