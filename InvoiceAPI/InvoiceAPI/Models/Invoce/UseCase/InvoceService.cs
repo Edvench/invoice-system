@@ -1,6 +1,7 @@
 ﻿using InvoiceAPI.Http.Request.Task;
 using InvoiceAPI.Models.Invoce.Service;
 using NPOI.HSSF.UserModel;
+using NPOI.HSSF.Util;
 using NPOI.SS.UserModel;
 using NPOI.XSSF.UserModel;
 using NPOI.XWPF.UserModel;
@@ -94,7 +95,8 @@ namespace InvoiceAPI.Models.Invoce.UseCase
             XWPFTableCell cellSignature = table.GetRow(8).GetCell(0);
             XWPFTableCell cellHelper = table.GetRow(9).GetCell(0);
             XWPFTableCell cellFIOEnd = table.GetRow(10).GetCell(0);
-           
+
+            
 
             cellFIO.SetText(invoce.GetFIO());
             cellStreetBuild.SetText(invoce.GetStreetBuild());
@@ -119,14 +121,20 @@ namespace InvoiceAPI.Models.Invoce.UseCase
             cellFIOEnd.SetBorderBottom(XWPFBorderType.SINGLE, 3, 3, "#FFFFFF");
             cellDescription.SetBorderBottom(XWPFBorderType.SINGLE, 3, 3, "#FFFFFF");
             cellHelper.SetBorderBottom(XWPFBorderType.SINGLE, 3, 3, "#FFFFFF");
-            //XWPFParagraph p1 = cellFIO.AddParagraph();   //don't use doc.CreateParagraph
+            XWPFParagraph p1 = cellRaid.AddParagraph();
+            //XSSFCellStyle raidStyle = (HSSFCellStyle)table.CreateCellStyle();//don't use doc.CreateParagraph
             //XWPFRun r1 = p1.CreateRun();
+            //cellRaid.
+
+
+
 
             //r1.SetText("This is test table contents");
 
             //r1.FontFamily = "Courier";
             //r1.SetUnderline(UnderlinePatterns.DotDotDash);
             //r1.SetTextPosition(100);
+            //r1.set
             //r1.SetColor("FF0000");
 
             //table.GetRow(2).GetCell(2).SetText("only text");

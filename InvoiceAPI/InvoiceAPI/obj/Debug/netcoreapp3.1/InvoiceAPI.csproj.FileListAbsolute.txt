@@ -289,3 +289,5 @@ D:\Work2\invoice-system\InvoiceAPI\InvoiceAPI\obj\Debug\netcoreapp3.1\InvoiceAPI
 D:\Work2\invoice-system\InvoiceAPI\InvoiceAPI\obj\Debug\netcoreapp3.1\InvoiceAPI.pdb
 D:\Work2\invoice-system\InvoiceAPI\InvoiceAPI\obj\Debug\netcoreapp3.1\InvoiceAPI.genruntimeconfig.cache
 D:\Work2\invoice-system\InvoiceAPI\InvoiceAPI\obj\Debug\netcoreapp3.1\InvoiceAPI.csprojAssemblyReference.cache
+D:\Work2\invoice-system\InvoiceAPI\InvoiceAPI\bin\Debug\netcoreapp3.1\Resourse\Invoce\DocumentWithInvoce.doc
+D:\Work2\invoice-system\InvoiceAPI\InvoiceAPI\bin\Debug\netcoreapp3.1\Resourse\Invoce\DocumentWithInvoce.docx

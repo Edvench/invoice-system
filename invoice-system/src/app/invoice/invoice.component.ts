@@ -38,7 +38,7 @@ export class InvoiceComponent implements OnInit {
       emailControl:     ["", [ Validators.required,
                                Validators.email]],
       telephoneNumberControl:     ["", [ Validators.required,
-                                         Validators.pattern('^[0-9]{12}+$')]],
+                                         Validators.pattern('^[0-9]+$')]],
       streetControl:     ["", [ Validators.required]],
       buildNumberControl:     ["", [ Validators.required]],
       descriptionControl:     ["", [ Validators.required]]

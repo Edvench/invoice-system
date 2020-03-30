@@ -27,5 +27,14 @@
     <Folder Include="Resourse\Invoce\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="Resourse\Invoce\DocumentWithInvoce.doc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Resourse\Invoce\DocumentWithInvoce.docx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 
 </Project>
