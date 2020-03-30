@@ -31,7 +31,7 @@ namespace InvoiceAPI.Http.Request.Task
 
         [Required]
         [Display(Name = "BuildNumber")]
-        public int BuildNumber { get; set; }
+        public string BuildNumber { get; set; }
 
         [Required]
         [Display(Name = "City")]
@@ -58,7 +58,16 @@ namespace InvoiceAPI.Http.Request.Task
         public string Description { get; set; }
 
         [Required]
-        [DisplayFormat(DataFormatString = "{dd/M/yyyy hh:mm:ss}", ApplyFormatInEditMode = true)]
+        [Display(Name = "Date")]
         public DateTime Date { get; set; }
+
+        public string ConvertDate(DateTime date) {
+            date = this.Date;
+            string dayFrom = this.Date.Day.ToString();
+            string monthFrom = this.Date.Month.ToString(); 
+            string yearFrom = this.Date.Year.ToString();
+            string resultDate = dayFrom + '-' + monthFrom + "-" + yearFrom;
+            return resultDate;
+        }
     }
 }

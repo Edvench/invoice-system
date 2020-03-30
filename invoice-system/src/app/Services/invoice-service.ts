@@ -21,7 +21,7 @@ export class InvoiceService{
         firstName:string,
         lastName:string,
         street:string,
-        buildNumber:number,
+        buildNumber:string,
         index:number,
         city:string,
         country:string,
@@ -36,7 +36,7 @@ export class InvoiceService{
         formData.append('Name', firstName);
         formData.append('LastName', lastName);
         formData.append('Street', street);
-        formData.append('BuildNumber', buildNumber.toString());
+        formData.append('BuildNumber', buildNumber);
         formData.append('IndexCity', index.toString());
         formData.append('City', city);
         formData.append('Country', country);

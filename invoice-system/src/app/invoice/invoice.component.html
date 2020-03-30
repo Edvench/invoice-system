@@ -2,76 +2,121 @@
     <div class="section">
         <app-upload></app-upload>
         <form class="form" [formGroup]="formGroup">
-            <mat-form-field class="raid-input">
+            <mat-form-field class="input">
                 <mat-label>Raid</mat-label>
                 <input matInput formControlName="raidControl" name="name" />
                 <mat-hint align="start"><strong>Please,input your raid</strong> </mat-hint>
+                <mat-error *ngIf="formGroup.controls['raidControl'].hasError('required') && formGroup.controls['raidControl'].touched">
+                    Please enter a <strong>raid</strong>
+                  </mat-error>
+                  <mat-error *ngIf="formGroup.controls['raidControl'].hasError('pattern') && formGroup.controls['raidControl'].touched">
+                    Raid must consist of <strong>numbers</strong>
+                  </mat-error>
             </mat-form-field>
 
             <mat-form-field class="input">
                 <mat-label>Name</mat-label>
                 <input matInput formControlName="firstNameControl" name="name" />
-                <mat-hint align="start"><strong>Please,input your raid</strong> </mat-hint>
+                <mat-hint align="start"><strong>Please,input your first name</strong> </mat-hint>
+                <mat-error *ngIf="formGroup.controls['firstNameControl'].invalid && formGroup.controls['firstNameControl'].touched">
+                    Please enter a <strong>first name</strong>
+                  </mat-error>
             </mat-form-field>
 
             <mat-form-field class="input">
                 <mat-label>Last Name</mat-label>
                 <input matInput formControlName="lastNameControl" name="name" />
-                <mat-hint align="start"><strong>Please,input your raid</strong> </mat-hint>
+                <mat-hint align="start"><strong>Please,input your last name</strong> </mat-hint>
+                <mat-error *ngIf="formGroup.controls['lastNameControl'].invalid && formGroup.controls['lastNameControl'].touched">
+                    Please enter a <strong>last name</strong>
+                  </mat-error>
             </mat-form-field>
 
             <mat-form-field class="input">
                 <mat-label>City</mat-label>
                 <input matInput formControlName="cityControl" name="name" />
-                <mat-hint align="start"><strong>Please,input your raid</strong> </mat-hint>
+                <mat-hint align="start"><strong>Please,input your city</strong> </mat-hint>
+                <mat-error *ngIf="formGroup.controls['cityControl'].invalid && formGroup.controls['cityControl'].touched">
+                    Please enter a <strong>city</strong>
+                  </mat-error>
             </mat-form-field>
 
             <mat-form-field class="input">
                 <mat-label>Index</mat-label>
                 <input matInput formControlName="indexNameControl" name="name" />
-                <mat-hint align="start"><strong>Please,input your raid</strong> </mat-hint>
+                <mat-hint align="start"><strong>Please,input your index</strong> </mat-hint>
+                <mat-error *ngIf="formGroup.controls['indexNameControl'].hasError('required') && formGroup.controls['indexNameControl'].touched">
+                    Please enter a <strong>index</strong>
+                  </mat-error>
+                  <mat-error *ngIf="formGroup.controls['indexNameControl'].hasError('pattern') && formGroup.controls['indexNameControl'].touched">
+                    Index must consist of <strong>numbers</strong>
+                  </mat-error>
             </mat-form-field>
 
             <mat-form-field class="input">
                 <mat-label>Country</mat-label>
                 <input matInput formControlName="countryControl" name="name" />
-                <mat-hint align="start"><strong>Please,input your raid</strong> </mat-hint>
+                <mat-hint align="start"><strong>Please,input your country</strong> </mat-hint>
+                <mat-error *ngIf="formGroup.controls['countryControl'].invalid && formGroup.controls['countryControl'].touched">
+                    Please enter a <strong>country</strong>
+                  </mat-error>
             </mat-form-field>
 
             <mat-form-field class="input">
                 <mat-label>E-Mail</mat-label>
                 <input matInput formControlName="emailControl" name="name" />
-                <mat-hint align="start"><strong>Please,input your raid</strong> </mat-hint>
+                <mat-hint align="start"><strong>Please,input your e-mail</strong> </mat-hint>
+                <mat-error *ngIf="formGroup.controls['emailControl'].hasError('required') && formGroup.controls['emailControl'].touched">
+                  Please enter a <strong>e-mail</strong>
+                </mat-error>
+                <mat-error *ngIf="formGroup.controls['emailControl'].hasError('email') && formGroup.controls['emailControl'].touched">
+                  Example: <strong>name@service.com</strong>
+                </mat-error>
             </mat-form-field>
 
             <mat-form-field class="input">
                 <mat-label>Telephone Number</mat-label>
+                <span matPrefix>+ &nbsp;</span>
                 <input matInput formControlName="telephoneNumberControl" name="name" />
-                <mat-hint align="start"><strong>Please,input your raid</strong> </mat-hint>
-            </mat-form-field>
-
-            <mat-form-field class="input">
-                <mat-label>Street</mat-label>
-                <input matInput formControlName="streetControl" name="name" />
-                <mat-hint align="start"><strong>Please,input your raid</strong> </mat-hint>
-            </mat-form-field>
-
-            <mat-form-field class="input">
-                <mat-label>Build</mat-label>
-                <input matInput formControlName="buildNumberControl" name="name" />
-                <mat-hint align="start"><strong>Please,input your raid</strong> </mat-hint>
-            </mat-form-field>
-
-            <mat-form-field class="input">
-                <mat-label>Description</mat-label>
-                <input matInput formControlName="descriptionControl" name="name" />
-                <mat-hint align="start"><strong>Please,input your raid</strong> </mat-hint>
+                <mat-hint align="start"><strong>Please,input your telephone number</strong> </mat-hint>
+                <mat-error *ngIf="formGroup.controls['telephoneNumberControl'].invalid && formGroup.controls['telephoneNumberControl'].touched">
+                    Please enter a <strong>telephone number</strong>
+                  </mat-error>
             </mat-form-field>
 
             <app-date-picker  (notifyDatePicker)='getDataFromDatePicker($event)'></app-date-picker>
 
+            <mat-form-field class="input">
+                <mat-label>Street</mat-label>
+                <input matInput formControlName="streetControl" name="name" />
+                <mat-hint align="start"><strong>Please,input your street</strong> </mat-hint>
+                <mat-error *ngIf="formGroup.controls['streetControl'].invalid && formGroup.controls['streetControl'].touched">
+                    Please enter a <strong>street</strong>
+                  </mat-error>
+            </mat-form-field>
+
+            <mat-form-field class="input">
+                <mat-label>Build</mat-label>
+                <input  matInput formControlName="buildNumberControl" name="name" />
+                <mat-hint align="start"><strong>Please,input your build number</strong> </mat-hint>
+                <mat-error *ngIf="formGroup.controls['buildNumberControl'].invalid && formGroup.controls['buildNumberControl'].touched">
+                    Please enter a <strong>build number</strong>
+                  </mat-error>
+            </mat-form-field>
+
+            <mat-form-field class="input">
+                <mat-label>Description</mat-label>
+                <textarea matInput formControlName="descriptionControl" name="name"></textarea>
+                <mat-hint align="start"><strong>Please,input your description</strong> </mat-hint>
+                <mat-error *ngIf="formGroup.controls['descriptionControl'].invalid && formGroup.controls['descriptionControl'].touched">
+                    Please enter a <strong>description</strong>
+                  </mat-error>
+            </mat-form-field>
+
+            
+
         </form>
-        <button class="button-wrapper" mat-raised-button (click)="getInvoice()">Generate invoice</button>
+        <button class="button-wrapper" mat-raised-button [disabled]="formGroup.invalid" (click)="getInvoice()">Generate invoice</button>
         <button class="button-wrapper" mat-raised-button (click)="goTaskComponent()">Task Component</button>
     </div>
 </div>

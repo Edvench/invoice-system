@@ -19,6 +19,5 @@ namespace InvoiceAPI.Http.Request.Task
         [DisplayFormat(DataFormatString = "{dd/M/yyyy hh:mm:ss}", ApplyFormatInEditMode = true)]
         public DateTime DateOfTask { get; set; }
 
-        //public DateTime d = DateTime.ParseExact(DateOfTask.ToString(), "MM/dd/yyyy hh:mm:ss tt", CultureInfo.InvariantCulture);
     }
 }

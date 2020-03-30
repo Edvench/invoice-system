@@ -10,7 +10,10 @@ namespace InvoiceAPI.Models.Invoce.Entity
         public int SumMoney { get; private set; }
         public int TotalHourse { get; private set; }
         public string FIO { get; private set; }
-        public string Adress { get; private set; }
+        public string StreetBuild { get; private set; }
+
+        public string CityAndIndex { get; private set; }
+        public string Country { get; private set; }
         public string Email { get; private set; }
         public int TelephoneNumber { get; private set; }
         public string Description { get; private set; }
@@ -20,7 +23,7 @@ namespace InvoiceAPI.Models.Invoce.Entity
             int money, 
             int totalHourse, 
             string street,
-            int buildNumber,
+            string buildNumber,
             string city,
             string country,
             int index,
@@ -32,24 +35,55 @@ namespace InvoiceAPI.Models.Invoce.Entity
             string data)
         {
            
-            this.FIO = name + " " + lastName;
-            this.Adress = street + " " + buildNumber + " " + index + " " + city + " " + country;
+            this.FIO = lastName + " " + name;
+            this.StreetBuild = street + " " + buildNumber;
+            this.CityAndIndex = index + " " + city;
+            this.Country = country;
             this.Email = email;
             this.TelephoneNumber = telephoneNumber;
             this.Description = description;
             this.SumMoney = (money * totalHourse);
             this.TotalHourse = totalHourse;
-            this.Data = data;
+            this.Data = "___________________" + data;
 
         }
 
 
-        public string getFIO() {
+        public string GetFIO() {
             return this.FIO;
         }
-        public override string ToString()
+
+        public string GetStreetBuild() {
+            return this.StreetBuild;
+        }
+        public string GetCityAndIndex()
         {
-            return "Total money by hourse: " + this.SumMoney + ", hourse: " + this.TotalHourse;
+            return this.CityAndIndex;
+        }
+        public string GetCountry()
+        {
+            return this.Country;
+        }
+        public string GetEmail()
+        {
+            return this.Email;
+        }
+
+        public int GetTelephoneNumber()
+        {
+            return this.TelephoneNumber;
+        }
+        public string GetDescription()
+        {
+            return this.Description;
+        }
+        public string GetSignature()
+        {
+            return this.Data;
+        }
+        public string GetRaid()
+        {
+            return "Amount USD: " + this.SumMoney;
         }
     }
 }

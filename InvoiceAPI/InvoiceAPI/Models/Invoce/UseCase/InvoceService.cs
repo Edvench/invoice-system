@@ -1,5 +1,4 @@
-﻿using InvoiceAPI.Http.Request;
-using InvoiceAPI.Http.Request.Task;
+﻿using InvoiceAPI.Http.Request.Task;
 using InvoiceAPI.Models.Invoce.Service;
 using NPOI.HSSF.UserModel;
 using NPOI.SS.UserModel;
@@ -7,7 +6,7 @@ using NPOI.XSSF.UserModel;
 using NPOI.XWPF.UserModel;
 using System;
 using System.IO;
-
+using static NPOI.XWPF.UserModel.XWPFTable;
 
 namespace InvoiceAPI.Models.Invoce.UseCase
 {
@@ -62,7 +61,7 @@ namespace InvoiceAPI.Models.Invoce.UseCase
                     reques.Name,
                     reques.LastName,
                     reques.Description,
-                    reques.Date.ToString()
+                    reques.ConvertDate(reques.Date)
                 );
             }
 
@@ -76,30 +75,68 @@ namespace InvoiceAPI.Models.Invoce.UseCase
 
         public void generateWork(Invoce.Entity.Invoce invoce)
         {
-                XWPFDocument doc = new XWPFDocument();
-                XWPFTable table = doc.CreateTable(3, 3);
+            XWPFDocument doc = new XWPFDocument();
+            XWPFTable table = doc.CreateTable(11, 1);
 
-                table.GetRow(1).GetCell(1).SetText(invoce.ToString());
-                table.GetRow(1).GetCell(1).SetText(invoce.getFIO());
+            table.SetLeftBorder(XWPFBorderType.SINGLE, 3, 3, "#FFFFFF");
+            table.SetRightBorder(XWPFBorderType.SINGLE, 3, 3, "#FFFFFF");
+            table.SetTopBorder(XWPFBorderType.SINGLE, 3, 3, "#FFFFFF");
 
-            XWPFTableCell c1 = table.GetRow(0).GetCell(0);
-                XWPFParagraph p1 = c1.AddParagraph();   //don't use doc.CreateParagraph
-                XWPFRun r1 = p1.CreateRun();
-                r1.SetText("This is test table contents");
 
-                r1.FontFamily = "Courier";
-                r1.SetUnderline(UnderlinePatterns.DotDotDash);
-                r1.SetTextPosition(100);
-                //c1.SetColor("FF0000");
+            XWPFTableCell cellFIO = table.GetRow(0).GetCell(0);
+            XWPFTableCell cellStreetBuild = table.GetRow(1).GetCell(0);
+            XWPFTableCell cellCityAndIndex = table.GetRow(2).GetCell(0);
+            XWPFTableCell cellCountry = table.GetRow(3).GetCell(0);
+            XWPFTableCell cellEmail = table.GetRow(4).GetCell(0);
+            XWPFTableCell cellNumber = table.GetRow(5).GetCell(0);
+            XWPFTableCell cellDescription = table.GetRow(6).GetCell(0);
+            XWPFTableCell cellRaid = table.GetRow(7).GetCell(0);
+            XWPFTableCell cellSignature = table.GetRow(8).GetCell(0);
+            XWPFTableCell cellHelper = table.GetRow(9).GetCell(0);
+            XWPFTableCell cellFIOEnd = table.GetRow(10).GetCell(0);
+           
 
-                table.GetRow(2).GetCell(2).SetText("only text");
+            cellFIO.SetText(invoce.GetFIO());
+            cellStreetBuild.SetText(invoce.GetStreetBuild());
+            cellCityAndIndex.SetText(invoce.GetCityAndIndex());
+            cellCountry.SetText(invoce.GetCountry());
+            cellEmail.SetText(invoce.GetEmail());
+            cellNumber.SetText(invoce.GetTelephoneNumber().ToString());
+            cellDescription.SetText(invoce.GetDescription());
+            cellRaid.SetText(invoce.GetRaid());
+            cellSignature.SetText(invoce.GetSignature());
+            cellHelper.SetText("Signature                          Data");
+            cellFIOEnd.SetText(invoce.GetFIO());
 
-                FileStream out1 = new FileStream(
-                    this._wordFile.GetWritePath(),
-                    FileMode.Create
-                );
-                doc.Write(out1);
-                out1.Close();
+            cellFIO.SetBorderBottom(XWPFBorderType.SINGLE, 3, 3, "#FFFFFF");///Убирает нижний бордер
+            cellStreetBuild.SetBorderBottom(XWPFBorderType.SINGLE, 3, 3, "#FFFFFF");
+            cellCityAndIndex.SetBorderBottom(XWPFBorderType.SINGLE, 3, 3, "#FFFFFF");
+            cellCountry.SetBorderBottom(XWPFBorderType.SINGLE, 3, 3, "#FFFFFF");
+            cellEmail.SetBorderBottom(XWPFBorderType.SINGLE, 3, 3, "#FFFFFF");
+            cellNumber.SetBorderBottom(XWPFBorderType.SINGLE, 3, 3, "#FFFFFF");
+            cellRaid.SetBorderBottom(XWPFBorderType.SINGLE, 3, 3, "#FFFFFF");
+            cellSignature.SetBorderBottom(XWPFBorderType.SINGLE, 3, 3, "#FFFFFF");
+            cellFIOEnd.SetBorderBottom(XWPFBorderType.SINGLE, 3, 3, "#FFFFFF");
+            cellDescription.SetBorderBottom(XWPFBorderType.SINGLE, 3, 3, "#FFFFFF");
+            cellHelper.SetBorderBottom(XWPFBorderType.SINGLE, 3, 3, "#FFFFFF");
+            //XWPFParagraph p1 = cellFIO.AddParagraph();   //don't use doc.CreateParagraph
+            //XWPFRun r1 = p1.CreateRun();
+
+            //r1.SetText("This is test table contents");
+
+            //r1.FontFamily = "Courier";
+            //r1.SetUnderline(UnderlinePatterns.DotDotDash);
+            //r1.SetTextPosition(100);
+            //r1.SetColor("FF0000");
+
+            //table.GetRow(2).GetCell(2).SetText("only text");
+
+            FileStream out1 = new FileStream(
+                this._wordFile.GetWritePath(),
+                FileMode.Create
+            );
+            doc.Write(out1);
+            out1.Close();
         }
     }
 }

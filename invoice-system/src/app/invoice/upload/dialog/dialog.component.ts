@@ -35,7 +35,7 @@ export class DialogComponent implements OnInit {
   uploading = false;
   uploadSuccessful = false;
 
-  onFilesAdded() {
+  onFilesAdded() {///Нужно перенести 2
     const files: { [key: string]: File } = this.file.nativeElement.files;
     for (let key in files) {
       if (!isNaN(parseInt(key))) {
@@ -58,7 +58,7 @@ export class DialogComponent implements OnInit {
     this.uploading = true;
 
     // start the upload and save the progress map
-    this.progress = this.uploadService.upload(this.files);
+    this.progress = this.uploadService.upload(this.files);///Получаем нужную нам формдату
     console.log(this.progress);
     this.fileService.setFile(this.progress)
     for (const key in this.progress) {
