@@ -2,11 +2,11 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatDialogRef } from '@angular/material';
 import { UploadService } from 'src/app/Services/upload.service';
 import { forkJoin } from 'rxjs';
-import {InvoiceService} from 'src/app/Services/invoice-service'
-import { GetFileService } from 'src/app/Services/get-file.service';
+import { InvoiceService } from 'src/app/Services/invoice-service'
+import { FormatFileService } from 'src/app/Services/formatFile.service';
 
 @Component({
-  moduleId:module.id,
+  moduleId: module.id,
   selector: 'app-dialog',
   templateUrl: 'dialog.component.html',
   styleUrls: ['dialog.component.scss']
@@ -14,26 +14,22 @@ import { GetFileService } from 'src/app/Services/get-file.service';
 export class DialogComponent implements OnInit {
   @ViewChild('file', { static: false }) file;
 
-  public files: Set<File> = new Set();
-
+  private files: Set<File> = new Set();
+  private progress;
+  private canBeClosed = true;
+  private primaryButtonText = 'Upload';
+  private showCancelButton = true;
+  private uploading = false;
+  private uploadSuccessful = false;
 
   constructor(
-    public dialogRef: MatDialogRef<DialogComponent>, 
+    public dialogRef: MatDialogRef<DialogComponent>,
     public uploadService: UploadService,
-    public invoiceService:InvoiceService,
-    public fileService:GetFileService
-    ) { }
-
-  
+    public invoiceService: InvoiceService,
+    public fileService: FormatFileService
+  ) { }
 
   ngOnInit() { }
-
-  progress;
-  canBeClosed = true;
-  primaryButtonText = 'Upload';
-  showCancelButton = true;
-  uploading = false;
-  uploadSuccessful = false;
 
   onFilesAdded() {///Нужно перенести 2
     const files: { [key: string]: File } = this.file.nativeElement.files;
@@ -60,11 +56,10 @@ export class DialogComponent implements OnInit {
     // start the upload and save the progress map
     this.progress = this.uploadService.upload(this.files);
     this.uploadService.getSheetNameArray();
-    console.log(this.progress);
     this.fileService.setFile(this.progress)
-    for (const key in this.progress) {
-      this.progress[key].progress.subscribe(val => console.log(val));
-    }
+    // for (const key in this.progress) {
+    //   this.progress[key].progress.subscribe(val => console.log(val));
+    // }
 
     // convert the progress map into an array
     let allProgressObservables = [];

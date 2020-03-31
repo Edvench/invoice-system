@@ -1,5 +1,5 @@
 
-    <mat-form-field class="example-full-width" [formGroup]="formGroup">
+    <mat-form-field class="datepicker" [formGroup]="formGroup">
         <mat-label>Choose a date</mat-label>
         <input matInput [matDatepicker]="picker" name="fieldName" 
          formControlName="dataControl" (ngModelChange)="convertDataToString(formGroup.controls['dataControl'].value)">

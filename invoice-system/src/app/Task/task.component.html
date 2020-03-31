@@ -8,11 +8,13 @@
         <form *ngIf="tasks.length">
             <div class="datepicker-form">
                 <app-date-picker fieldName="validDateFrom" (notifyDatePicker)='onNotify($event)'></app-date-picker>
-                <app-date-picker class="datepicker-right" fieldName="validDateTo" (notifyDatePicker)='onNotify($event)'></app-date-picker>
+                <app-date-picker class="datepicker-right" fieldName="validDateTo" (notifyDatePicker)='onNotify($event)'>
+                </app-date-picker>
             </div>
-            <button mat-raised-button (click)="searchWithData()">Search Data</button>
+            <div class="button-wrapper">
+                <button mat-raised-button (click)="searchWithData()">Search Data</button>
+            </div>
         </form>
-
 
         <p *ngIf="tasks.length">
             <mat-form-field class="search-input">
@@ -22,8 +24,8 @@
             </mat-form-field>
         </p>
 
-
         <li *ngFor="let task of tasks">
+            <p>CONTENT</p>
             <p class="task-title">{{task.title}}</p>
             <p class="task-description">{{task.description}}</p>
             <p class="task-money">{{task.money}}</p>
@@ -31,7 +33,7 @@
         </li>
 
         <p *ngIf="tasks.length">
-            <button mat-raised-button (click)="getTasksResponce(fullResponce.currentPage)">more</button>
+            <button mat-raised-button (click)="getTasksResponce(fullResponce.currentPage)">More Tasks</button>
         </p>
     </div>
 </div>

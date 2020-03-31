@@ -84,7 +84,7 @@
                   </mat-error>
             </mat-form-field>
 
-            <app-date-picker  (notifyDatePicker)='getDataFromDatePicker($event)'></app-date-picker>
+            <app-date-picker class="input" (notifyDatePicker)='getDataFromDatePicker($event)'></app-date-picker>
 
             <mat-form-field class="input">
                 <mat-label>Street</mat-label>
@@ -113,7 +113,7 @@
                   </mat-error>
             </mat-form-field>
 
-          <mat-form-field>
+          <mat-form-field class="input">
             <mat-label>Select tab sheet from file</mat-label>
             <mat-select (focus)= "sheetName()" formControlName="sheetTabNameControl">
               <mat-option *ngFor="let name of sheettNameResponce" [value]="name">

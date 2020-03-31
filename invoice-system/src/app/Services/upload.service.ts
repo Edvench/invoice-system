@@ -6,23 +6,21 @@ import {
   HttpResponse
 } from '@angular/common/http';
 import { Subject, Observable } from 'rxjs';
-import { GetFileService } from './get-file.service';
+import { FormatFileService } from './formatFile.service';
 import { environment } from '../../environments/environment';
 
 @Injectable()
 export class UploadService {
 
   private apiEndPoint: string;
-  public sname:any;
+  public sheetNames: string[];
 
   constructor(
     private http: HttpClient,
-    private setData: GetFileService
-    ) {
-      this.apiEndPoint = environment.domainUrl;
-     }
-
-
+    private fileService: FormatFileService
+  ) {
+    this.apiEndPoint = environment.domainUrl;
+  }
 
   public upload(
     files: Set<File>
@@ -30,13 +28,13 @@ export class UploadService {
     // это будет наша получившаяся карта
     const status: { [key: string]: { progress: Observable<number> } } = {};
 
-    
+
     files.forEach(file => {
       // создать новую multipart-форму для каждого файла
       const formData: FormData = new FormData();
       formData.append('file', file, file.name);
-      
-      this.setData.setFormData(formData);
+
+      this.fileService.setFormData(formData);
 
       // создайте запрос http-post и передайте форму
       // скажи это, чтобы сообщить о прогрессе загрузки
@@ -74,26 +72,16 @@ export class UploadService {
     return status;
   }
 
-  public getFile(files: Set<File>)  {
-    files.forEach(file => {
-      const formData: FormData = new FormData();
-      formData.append('file', file, file.name);
-      console.log(formData);
-      return formData;
-    });
-  }
-
-  getSheetName(formData:FormData): Observable<any> {
+  getSheetName(formData: FormData): Observable<any> {
 
     return this.http.post(this.apiEndPoint + "/home/upload", formData);
-}
+  }
 
-  public getSheetNameArray(){
-    this.getSheetName(this.setData.getFormData()).subscribe(
+  public getSheetNameArray() {
+    this.getSheetName(this.fileService.getFormData()).subscribe(
       response => {
-        this.sname = response;
-        console.log(this.sname);
-        return this.sname;
+        this.sheetNames = response;
+        return this.sheetNames;
       });
   }
 

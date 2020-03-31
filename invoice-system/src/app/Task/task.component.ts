@@ -4,7 +4,7 @@ import { environment } from 'src/environments/environment';
 import { Router } from '@angular/router';
 import { TaskService } from '../Services/task-service';
 import { Task } from '../Entity/task';
-import { DatePickerComponent } from './date-picker/date-picker.component';
+import { DatePickerComponent } from '../Entity/date-picker/date-picker.component';
 
 @Component({
   moduleId: module.id,

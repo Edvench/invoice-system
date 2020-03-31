@@ -16,3 +16,14 @@
 
 .datepicker-right {
   padding-left: 15px; }
+
+li {
+  list-style-type: none; }
+
+.button-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center; }

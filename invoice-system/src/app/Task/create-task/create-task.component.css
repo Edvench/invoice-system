@@ -1,6 +1,6 @@
 .container{
     margin-top:10%;
-    width: 20%;
+    width: 40%;
     margin-left: auto;
     margin-right: auto;
 }
@@ -9,4 +9,8 @@
     display: flex;
     flex-direction: column;
     justify-content: space-around;
+}
+
+button{
+    margin-top: 30px;
 }

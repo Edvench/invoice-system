@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { InvoiceService } from '../Services/invoice-service';
-import { GetFileService } from '../Services/get-file.service';
+import { FormatFileService } from '../Services/formatFile.service';
 import { InvoceRequest } from '../Entity/invoice-request';
 import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
@@ -22,7 +22,7 @@ export class InvoiceComponent implements OnInit {
 
   constructor(
     private invoiceService:InvoiceService,
-    private fileService:GetFileService,
+    private fileService:FormatFileService,
     private uploadService:UploadService,
     private router: Router,
     private fb:FormBuilder
@@ -61,7 +61,6 @@ export class InvoiceComponent implements OnInit {
   }
 
   public getInvoice(){
-    // this.request.money = this.raidComponent.moneyFromInput;
     this.request.file = this.fileService.getFile();
     this.invoiceService.postData(
       this.formGroup.controls["raidControl"].value,
@@ -88,9 +87,7 @@ export class InvoiceComponent implements OnInit {
   }
 
   public sheetName():any{
-    
-    this.sheettNameResponce = this.uploadService.sname;
-    console.log(this.sheettNameResponce);
+    this.sheettNameResponce = this.uploadService.sheetNames;
     return this.sheettNameResponce
   }
 }

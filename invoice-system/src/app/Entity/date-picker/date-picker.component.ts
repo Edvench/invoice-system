@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, Injectable, EventEmitter, Output } from '@angular/core';
-import { FormControl, Validators, FormGroup, FormBuilder } from '@angular/forms';
+import { Validators, FormGroup, FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'app-date-picker',
@@ -16,7 +16,6 @@ export class DatePickerComponent implements OnInit {
   @Input() fieldName:string;///кастомный параметр для имя поля(определ.в task.component как dataFrom DatatTO)
   @Output() notifyDatePicker: EventEmitter<object> = new EventEmitter<object>();///Обработчик событий(вы-
   //зывает функцию в род. компоненте)
-
   private formGroup: FormGroup;
 
   constructor( private formBuilder:FormBuilder) {
@@ -33,8 +32,6 @@ export class DatePickerComponent implements OnInit {
     const monthFrom = dateObjectValue.getMonth() + 1;
     const yearFrom = dateObjectValue.getFullYear();
     const resultDate = yearFrom + '-' + monthFrom + "-" + dayFrom ;
-   
-    console.log({date: resultDate, fieldName: this.fieldName})
     this.notifyDatePicker.emit({date: resultDate, fieldName: this.fieldName});
   }
 }
