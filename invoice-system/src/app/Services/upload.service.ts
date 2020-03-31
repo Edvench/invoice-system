@@ -13,6 +13,7 @@ import { environment } from '../../environments/environment';
 export class UploadService {
 
   private apiEndPoint: string;
+  public sname:any;
 
   constructor(
     private http: HttpClient,
@@ -81,5 +82,14 @@ export class UploadService {
       return formData;
     });
   }
+
+  // public getSheetNameArray(){
+  //   this.upload(this.setData.getFile()).subscribe(
+  //     response => {
+  //       this.sname = response;
+  //       console.log(this.sname);
+  //       return this.sname;
+  //     });
+  // }
 
 }

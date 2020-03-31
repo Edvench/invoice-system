@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "vGwFuCCuBxF0O9awVoMgddtyX1CAyrLPHsVtIBTNnqQdcFCbiSlh21PK/vGetlOEyMMiQI/NdwANlLrq9cptKg==",
+  "dgSpecHash": "8tAvLspZ1CEk4WDLclsKKoFgLPKEPmgkCaTZ7UOYpxta20bAzNApm22cY11k5EaTagdV/2SmJawb7Tqe9xoeew==",
   "success": true,
   "projectFilePath": "D:\\Work2\\invoice-system\\InvoiceAPI\\InvoiceAPI\\InvoiceAPI.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\Admin\\.nuget\\packages\\documentformat.openxml\\2.10.1\\documentformat.openxml.2.10.1.nupkg.sha512",
     "C:\\Users\\Admin\\.nuget\\packages\\dotnetcore.npoi\\1.2.2\\dotnetcore.npoi.1.2.2.nupkg.sha512",
     "C:\\Users\\Admin\\.nuget\\packages\\dotnetcore.npoi.core\\1.2.2\\dotnetcore.npoi.core.1.2.2.nupkg.sha512",
     "C:\\Users\\Admin\\.nuget\\packages\\dotnetcore.npoi.openxml4net\\1.2.2\\dotnetcore.npoi.openxml4net.1.2.2.nupkg.sha512",
@@ -124,6 +125,7 @@
     "C:\\Users\\Admin\\.nuget\\packages\\system.io.compression.zipfile\\4.3.0\\system.io.compression.zipfile.4.3.0.nupkg.sha512",
     "C:\\Users\\Admin\\.nuget\\packages\\system.io.filesystem\\4.3.0\\system.io.filesystem.4.3.0.nupkg.sha512",
     "C:\\Users\\Admin\\.nuget\\packages\\system.io.filesystem.primitives\\4.3.0\\system.io.filesystem.primitives.4.3.0.nupkg.sha512",
+    "C:\\Users\\Admin\\.nuget\\packages\\system.io.packaging\\4.7.0\\system.io.packaging.4.7.0.nupkg.sha512",
     "C:\\Users\\Admin\\.nuget\\packages\\system.linq\\4.3.0\\system.linq.4.3.0.nupkg.sha512",
     "C:\\Users\\Admin\\.nuget\\packages\\system.linq.expressions\\4.3.0\\system.linq.expressions.4.3.0.nupkg.sha512",
     "C:\\Users\\Admin\\.nuget\\packages\\system.memory\\4.5.3\\system.memory.4.5.3.nupkg.sha512",

@@ -86,6 +86,7 @@ namespace InvoiceAPI
             services.AddTransient<TaskService,TaskService>();
             services.AddTransient<EFRepository, EFRepository>();
             services.AddTransient<Task, Task>();
+            services.AddTransient<GetAllSheets, GetAllSheets>();
         }
     }
 }

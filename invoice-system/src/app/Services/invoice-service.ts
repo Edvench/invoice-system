@@ -28,7 +28,8 @@ export class InvoiceService{
         email:string,
         telephoneNumber:number,
         description:string,
-        date:string
+        date:string,
+        tabName:string
         ): Observable<any>{
         var formData = new FormData();
         formData = this.setData.getFormData();///получаем файл
@@ -44,9 +45,15 @@ export class InvoiceService{
         formData.append('TelephoneNumber', telephoneNumber.toString());
         formData.append('Description', description);
         formData.append('Date', date);
+        formData.append('SheetTabName', tabName);
         console.log(formData)
 
         return this.http.post(this.apiEndPoint + "/home/invoce", formData, {responseType: 'blob' }); 
+    }
+
+    getSheetName(formData:FormData): Observable<any> {
+
+        return this.http.post(this.apiEndPoint + "/home/upload", formData);
     }
 
 

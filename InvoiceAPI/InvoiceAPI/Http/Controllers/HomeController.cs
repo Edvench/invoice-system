@@ -1,14 +1,18 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.IO;
 using System.Net;
 using System.Net.Http;
+using InvoiceAPI.Http.Request.Invoice;
 using InvoiceAPI.Http.Request.Task;
 using InvoiceAPI.Models.Invoce.Entity;
 using InvoiceAPI.Models.Invoce.Service;
 using InvoiceAPI.Models.Invoce.UseCase;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-
-
+using NPOI.HSSF.UserModel;
+using NPOI.SS.UserModel;
+using NPOI.XSSF.UserModel;
 
 namespace InvoiceAPI.Http.Controllers
 {
@@ -21,12 +25,49 @@ namespace InvoiceAPI.Http.Controllers
         private readonly ILogger<HomeController> _logger;
         private readonly InvoceService _service;
         private readonly WordFile _wordFile;
+        private readonly GetAllSheets _getAllSheets;
 
-        public HomeController(ILogger<HomeController> logger, InvoceService service, WordFile wordFile)
+        public HomeController(ILogger<HomeController> logger, InvoceService service, WordFile wordFile, GetAllSheets allsheets)
         {
             _logger = logger;
             this._service = service;
             this._wordFile = wordFile;
+            this._getAllSheets = allsheets;
+        }
+
+        [HttpPost]
+        public IEnumerable<string> Upload([FromForm]FileRequest reques)
+        {
+            
+                var filePath = Path.GetTempFileName();//Получаем времений путь до файла
+                Invoce invoice = null; //создаем екземпляр инвойса 
+
+                using (var stream = new FileStream(filePath, FileMode.Create)) //открываем файл в потоке
+                {
+                    ISheet sheet;///Экземпляр таблицы
+                    string sFileExtension = Path.GetExtension(reques.File.FileName).ToLower();
+                List<string> name = new List<string>();
+
+                    reques.File.CopyTo(stream);
+                    stream.Position = 0;
+                    if (sFileExtension == ".xls")
+                    {
+                    XSSFWorkbook hssfwb = new XSSFWorkbook(stream); //This will read 2007 Excel format  
+                    name = this._getAllSheets.getSheets(hssfwb);
+                    return name;
+                }
+                    else
+                    {
+                        XSSFWorkbook hssfwb = new XSSFWorkbook(stream); //This will read 2007 Excel format  
+                    name =  this._getAllSheets.getSheets(hssfwb);
+                    //var json = new JavaScriptSerializer().Serialize(obj);
+                    return name;
+                        
+                    }
+
+                }
+            
+            
         }
 
         [HttpPost]
@@ -45,11 +86,11 @@ namespace InvoiceAPI.Http.Controllers
             }
         }
 
-        [HttpPost]
-        public ActionResult Upload([FromForm]MultipartFormDataContent file)
-        {
-            MultipartFormDataContent uploadFile = file;
-            return this.Ok();
-        }
+        //[HttpPost]
+        //public ActionResult Upload([FromForm]MultipartFormDataContent file)
+        //{
+        //    MultipartFormDataContent uploadFile = file;
+        //    return this.Ok();
+        //}
     }
 }

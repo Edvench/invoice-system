@@ -61,6 +61,10 @@ namespace InvoiceAPI.Http.Request.Task
         [Display(Name = "Date")]
         public DateTime Date { get; set; }
 
+        [Required]
+        [Display(Name = "SheetTabName")]
+        public string SheetTabName { get; set; }
+
         public string ConvertDate(DateTime date) {
             date = this.Date;
             string dayFrom = this.Date.Day.ToString();

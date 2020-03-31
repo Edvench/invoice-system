@@ -16,12 +16,14 @@ namespace InvoiceAPI.Models.Invoce.UseCase
         private readonly HourseExcelParser _hourseParser;
         private readonly FindColumnNumber _findColumn;
         private readonly WordFile _wordFile;
+        private readonly GetAllSheets _getAllSheets;
 
-        public InvoceService(HourseExcelParser hourseParser, FindColumnNumber findColumn, WordFile wordFile)
+        public InvoceService(HourseExcelParser hourseParser, FindColumnNumber findColumn, WordFile wordFile, GetAllSheets allsheets)
         {
             this._hourseParser = hourseParser;
             this._findColumn = findColumn;
             this._wordFile = wordFile;
+            this._getAllSheets = allsheets;
         }
 
         public Invoce.Entity.Invoce createInvoce(InvoceReques reques)
@@ -39,12 +41,14 @@ namespace InvoiceAPI.Models.Invoce.UseCase
                 if (sFileExtension == ".xls")
                 {
                     HSSFWorkbook hssfwb = new HSSFWorkbook(stream); //This will read the Excel 97-2000 formats  
-                    sheet = hssfwb.GetSheetAt(0); //get first sheet from workbook  
+                    sheet = hssfwb.GetSheet("January 20"); //get first sheet from workbook  
                 }
                 else
                 {
                     XSSFWorkbook hssfwb = new XSSFWorkbook(stream); //This will read 2007 Excel format  
-                    sheet = hssfwb.GetSheetAt(0); //get first sheet from workbook   
+                    this._getAllSheets.getSheets(hssfwb);
+                    sheet = hssfwb.GetSheet(reques.SheetTabName); //get first sheet from workbook  
+                    
                 }
 
                 int column = this._findColumn.Find(sheet.GetRow(0), "Hours");///находим нужную колонку

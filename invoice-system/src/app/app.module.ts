@@ -20,6 +20,7 @@ import { TaskService } from './Services/task-service';
 import { NgxDaterangepickerMd } from 'ngx-daterangepicker-material';
 import { DatePickerComponent } from './Task/date-picker/date-picker.component';
 import { Task } from './Entity/task';
+import {MatSelectModule} from '@angular/material/select'
 
 
 
@@ -42,6 +43,7 @@ import { Task } from './Entity/task';
     HttpClientModule,
     MatDatepickerModule,
     MatNativeDateModule,
+    MatSelectModule,
     NgxDaterangepickerMd.forRoot(),
     RouterModule.forRoot(Rout)
     

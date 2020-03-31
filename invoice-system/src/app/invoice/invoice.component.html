@@ -113,6 +113,17 @@
                   </mat-error>
             </mat-form-field>
 
+          <mat-form-field>
+            <mat-label>Select tab sheet from file</mat-label>
+            <mat-select (focus)= "sheetName()" formControlName="sheetTabNameControl">
+              <mat-option *ngFor="let name of sheettNameResponce" [value]="name">
+                {{name}}
+              </mat-option>
+            </mat-select>
+            <mat-error *ngIf="formGroup.controls['sheetTabNameControl'].invalid && formGroup.controls['sheetTabNameControl'].touched">
+              Please select a <strong>sheet tab name</strong>
+            </mat-error>
+          </mat-form-field>
             
 
         </form>

@@ -18,6 +18,8 @@ export class InvoiceComponent implements OnInit {
   public formGroup:FormGroup;
   private validDate: string;
 
+  public sheettNameResponce:any;
+
   constructor(
     private invoiceService:InvoiceService,
     private fileService:GetFileService,
@@ -41,11 +43,13 @@ export class InvoiceComponent implements OnInit {
                                          Validators.pattern('^[0-9]+$')]],
       streetControl:     ["", [ Validators.required]],
       buildNumberControl:     ["", [ Validators.required]],
-      descriptionControl:     ["", [ Validators.required]]
+      descriptionControl:     ["", [ Validators.required]],
+      sheetTabNameControl:     ["", [ Validators.required]]
     })
   }
 
   ngOnInit() {
+    
   }
 
   goTaskComponent() {
@@ -74,7 +78,8 @@ export class InvoiceComponent implements OnInit {
       this.formGroup.controls["emailControl"].value,
       this.formGroup.controls["telephoneNumberControl"].value,
       this.formGroup.controls["descriptionControl"].value,
-      this.validDate
+      this.validDate,
+      this.formGroup.controls["sheetTabNameControl"].value,
       
       ).subscribe(
       (response: any) => {
@@ -83,5 +88,14 @@ export class InvoiceComponent implements OnInit {
         window.open(url);
       }
     );
+  }
+
+  public sheetName(){
+    this.invoiceService.getSheetName(this.fileService.getFormData()).subscribe(
+      response => {
+        this.sheettNameResponce = response;
+        console.log(this.sheettNameResponce);
+        return this.sheettNameResponce;
+      });
   }
 }
