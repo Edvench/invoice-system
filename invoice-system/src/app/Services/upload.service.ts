@@ -83,13 +83,18 @@ export class UploadService {
     });
   }
 
-  // public getSheetNameArray(){
-  //   this.upload(this.setData.getFile()).subscribe(
-  //     response => {
-  //       this.sname = response;
-  //       console.log(this.sname);
-  //       return this.sname;
-  //     });
-  // }
+  getSheetName(formData:FormData): Observable<any> {
+
+    return this.http.post(this.apiEndPoint + "/home/upload", formData);
+}
+
+  public getSheetNameArray(){
+    this.getSheetName(this.setData.getFormData()).subscribe(
+      response => {
+        this.sname = response;
+        console.log(this.sname);
+        return this.sname;
+      });
+  }
 
 }

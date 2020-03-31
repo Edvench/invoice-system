@@ -58,7 +58,8 @@ export class DialogComponent implements OnInit {
     this.uploading = true;
 
     // start the upload and save the progress map
-    this.progress = this.uploadService.upload(this.files);///Получаем нужную нам формдату
+    this.progress = this.uploadService.upload(this.files);
+    this.uploadService.getSheetNameArray();
     console.log(this.progress);
     this.fileService.setFile(this.progress)
     for (const key in this.progress) {

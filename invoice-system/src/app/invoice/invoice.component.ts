@@ -4,6 +4,7 @@ import { GetFileService } from '../Services/get-file.service';
 import { InvoceRequest } from '../Entity/invoice-request';
 import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UploadService } from '../Services/upload.service';
 
 @Component({
   moduleId:module.id,
@@ -14,15 +15,15 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class InvoiceComponent implements OnInit {
   private request: InvoceRequest = new InvoceRequest;
-  public file :Set<File>;
-  public formGroup:FormGroup;
+  private file :Set<File>;
+  private formGroup:FormGroup;
   private validDate: string;
-
-  public sheettNameResponce:any;
+  private sheettNameResponce:any;
 
   constructor(
     private invoiceService:InvoiceService,
     private fileService:GetFileService,
+    private uploadService:UploadService,
     private router: Router,
     private fb:FormBuilder
   ) { 
@@ -48,9 +49,7 @@ export class InvoiceComponent implements OnInit {
     })
   }
 
-  ngOnInit() {
-    
-  }
+  ngOnInit() { }
 
   goTaskComponent() {
     this.router.navigate(['task']);
@@ -58,8 +57,6 @@ export class InvoiceComponent implements OnInit {
 
   getDataFromDatePicker(params):string {
     this.validDate = params.date;
-    
-    // this.formGroup.controls["dControl"].setValue(this.validDate)
     return this.validDate; 
   }
 
@@ -90,12 +87,10 @@ export class InvoiceComponent implements OnInit {
     );
   }
 
-  public sheetName(){
-    this.invoiceService.getSheetName(this.fileService.getFormData()).subscribe(
-      response => {
-        this.sheettNameResponce = response;
-        console.log(this.sheettNameResponce);
-        return this.sheettNameResponce;
-      });
+  public sheetName():any{
+    
+    this.sheettNameResponce = this.uploadService.sname;
+    console.log(this.sheettNameResponce);
+    return this.sheettNameResponce
   }
 }

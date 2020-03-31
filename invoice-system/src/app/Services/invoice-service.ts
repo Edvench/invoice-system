@@ -50,11 +50,4 @@ export class InvoiceService{
 
         return this.http.post(this.apiEndPoint + "/home/invoce", formData, {responseType: 'blob' }); 
     }
-
-    getSheetName(formData:FormData): Observable<any> {
-
-        return this.http.post(this.apiEndPoint + "/home/upload", formData);
-    }
-
-
 }
