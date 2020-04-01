@@ -11,7 +11,7 @@ import { DatePickerComponent } from '../Entity/date-picker/date-picker.component
   selector: 'app-task',
   templateUrl: 'task.component.html',
   styleUrls: ['task.component.scss',
-              '../Styles/global.scss']
+    '../Styles/global.scss']
 })
 export class TaskComponent implements OnInit {
 
@@ -19,7 +19,7 @@ export class TaskComponent implements OnInit {
   private validDateFrom: string;
   private validDateTo: string;
   private tasks: Task[] = [];
-  private filterId:string = "";
+  private filterId: string = "";
   private currentPageNumber: number;
   private fullResponce: any;
   private apiEndPoint: string;
@@ -40,20 +40,38 @@ export class TaskComponent implements OnInit {
   }
 
   getTasksResponce(currentPage: number): any {
-    
+
     console.log(this.filterId)
     this.currentPageNumber = currentPage + 1;
-    this.taskService.getMoreTasksResponce(this.currentPageNumber).subscribe(
-      response => {
-        this.fullResponce = response;
-        response.collection.forEach(element => {
-          this.tasks.push(element);
-          this.filterId = "all";
+    if (this.currentPageNumber == 1) {
+
+      this.tasks = [];
+      this.taskService.getMoreTasksResponce(this.currentPageNumber).subscribe(
+        response => {
+          this.fullResponce = response;
+          response.collection.forEach(element => {
+            this.tasks.push(element);
+            this.filterId = "all";
+          });
+          console.log(this.fullResponce);
+          console.log(this.tasks)
+          return this.fullResponce
         });
-        console.log(this.fullResponce);
-        console.log(this.tasks)
-        return this.fullResponce
-      });
+    }
+
+    else{
+      this.taskService.getMoreTasksResponce(this.currentPageNumber).subscribe(
+        response => {
+          this.fullResponce = response;
+          response.collection.forEach(element => {
+            this.tasks.push(element);
+            this.filterId = "all";
+          });
+          console.log(this.fullResponce);
+          console.log(this.tasks)
+          return this.fullResponce
+        });
+    }
   }
 
   getFilterTasksResponce(title: string) {
@@ -71,7 +89,7 @@ export class TaskComponent implements OnInit {
   }
 
 
-  onNotify(params):void {
+  onNotify(params): void {
     if (params.fieldName === 'validDateFrom') {
       this.validDateFrom = params.date;
     } else if (params.fieldName === 'validDateTo') {
@@ -82,10 +100,10 @@ export class TaskComponent implements OnInit {
   searchWithData(currentPage: number) {
     this.filterId = "";
     this.currentPageNumber = currentPage + 1;
-    if(this.currentPageNumber == 1){
-     
+    if (this.currentPageNumber == 1) {
+
       this.tasks = [];
-      this.taskService.getTasksDataFromFilter(this.validDateFrom, this.validDateTo,this.currentPageNumber).subscribe(
+      this.taskService.getTasksDataFromFilter(this.validDateFrom, this.validDateTo, this.currentPageNumber).subscribe(
         response => {
           this.fullResponce = response;
           response.collection.forEach(element => {
@@ -97,15 +115,16 @@ export class TaskComponent implements OnInit {
         });
     }
     else {
-      this.taskService.getTasksDataFromFilter(this.validDateFrom, this.validDateTo,this.currentPageNumber).subscribe(
-      response => {
-        this.fullResponce = response;
-        response.collection.forEach(element => {
-          this.tasks.push(element);
+      this.taskService.getTasksDataFromFilter(this.validDateFrom, this.validDateTo, this.currentPageNumber).subscribe(
+        response => {
+          this.fullResponce = response;
+          response.collection.forEach(element => {
+            this.tasks.push(element);
+          });
+          console.log(response);
+          console.log(this.tasks);
         });
-        console.log(response);
-        console.log(this.tasks);
-      });}
-    
+    }
+
   }
 }
