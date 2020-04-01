@@ -19,8 +19,7 @@ export class TaskComponent implements OnInit {
   private validDateFrom: string;
   private validDateTo: string;
   private tasks: Task[] = [];
-  private searchResultTitle:Task[] = [];
-  private searchResultData:Task[] = [];
+  private filterId:string = "";
   private currentPageNumber: number;
   private fullResponce: any;
   private apiEndPoint: string;
@@ -41,12 +40,15 @@ export class TaskComponent implements OnInit {
   }
 
   getTasksResponce(currentPage: number): any {
+    
+    console.log(this.filterId)
     this.currentPageNumber = currentPage + 1;
     this.taskService.getMoreTasksResponce(this.currentPageNumber).subscribe(
       response => {
         this.fullResponce = response;
         response.collection.forEach(element => {
           this.tasks.push(element);
+          this.filterId = "all";
         });
         console.log(this.fullResponce);
         console.log(this.tasks)
@@ -78,6 +80,7 @@ export class TaskComponent implements OnInit {
   }
 
   searchWithData(currentPage: number) {
+    this.filterId = "";
     this.currentPageNumber = currentPage + 1;
     if(this.currentPageNumber == 1){
      
@@ -87,6 +90,7 @@ export class TaskComponent implements OnInit {
           this.fullResponce = response;
           response.collection.forEach(element => {
             this.tasks.push(element);
+            this.filterId = "dateFilter";
           });
           console.log(response);
           console.log(this.tasks);
