@@ -107,7 +107,7 @@ namespace InvoiceAPI.Models.Invoce.UseCase
             cellCityAndIndex.SetText(invoce.GetCityAndIndex());
             cellCountry.SetText(invoce.GetCountry());
             cellEmail.SetText(invoce.GetEmail());
-            cellNumber.SetText(invoce.GetTelephoneNumber().ToString());
+            cellNumber.SetText("+" + invoce.GetTelephoneNumber());
             cellDescription.SetText(invoce.GetDescription());
             cellRaid.SetText(invoce.GetRaid());
             cellSignature.SetText(invoce.GetSignature());

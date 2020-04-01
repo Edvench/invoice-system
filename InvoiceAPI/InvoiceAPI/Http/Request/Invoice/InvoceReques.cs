@@ -51,7 +51,7 @@ namespace InvoiceAPI.Http.Request.Task
 
         [Required]
         [Display(Name = "TelephoneNumber")]
-        public int TelephoneNumber { get; set; }
+        public string TelephoneNumber { get; set; }
 
         [Required]
         [Display(Name = "Description")]

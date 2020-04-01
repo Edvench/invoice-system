@@ -30,18 +30,18 @@ export class InvoiceComponent implements OnInit {
     this.formGroup = fb.group({
       raidControl:            ["", [
         Validators.required,
-        Validators.pattern('^[0-9]+$')
+        Validators.pattern('^[0-9]{1,9}$')
       ]],
       firstNameControl:           ["", [ Validators.required]],
       lastNameControl:     ["", [ Validators.required]],
       cityControl:     ["", [ Validators.required]],
       indexNameControl:     ["", [ Validators.required,
-                                   Validators.pattern('^[0-9]+$')]],
+                                   Validators.pattern('^[0-9]{1,9}$')]],
       countryControl:     ["", [ Validators.required]],
       emailControl:     ["", [ Validators.required,
                                Validators.email]],
       telephoneNumberControl:     ["", [ Validators.required,
-                                         Validators.pattern('^[0-9]+$')]],
+                                         Validators.pattern('^[0-9]{12}$')]],
       streetControl:     ["", [ Validators.required]],
       buildNumberControl:     ["", [ Validators.required]],
       descriptionControl:     ["", [ Validators.required]],

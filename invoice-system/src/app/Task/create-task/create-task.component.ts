@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { FormControl, Validators, FormGroup, FormBuilder,FormArray } from '@angular/forms';
+import { Validators, FormGroup, FormBuilder } from '@angular/forms';
 import { TaskService } from 'src/app/Services/task-service';
 
 @Component({
@@ -23,7 +23,6 @@ export class CreateTaskComponent implements OnInit {
                               ]],
       titleControl:           ["", [ Validators.required]],
       descriptionControl:     ["", [ Validators.required]]
-      // dControl:            this.formBuilder.array([this.formBuilder.control('')])
     })
     
   }
@@ -32,8 +31,6 @@ export class CreateTaskComponent implements OnInit {
 
   getDataFromDatePicker(params):string {
     this.validDate = params.date;
-    
-    // this.formGroup.controls["dControl"].setValue(this.validDate)
     return this.validDate; 
   }
 

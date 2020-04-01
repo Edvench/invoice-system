@@ -15,7 +15,7 @@ namespace InvoiceAPI.Models.Invoce.Entity
         public string CityAndIndex { get; private set; }
         public string Country { get; private set; }
         public string Email { get; private set; }
-        public int TelephoneNumber { get; private set; }
+        public string TelephoneNumber { get; private set; }
         public string Description { get; private set; }
         public string Data { get; private set; }
 
@@ -27,7 +27,7 @@ namespace InvoiceAPI.Models.Invoce.Entity
             string city,
             string country,
             int index,
-            int telephoneNumber,
+            string telephoneNumber,
             string email,
             string name,
             string lastName,
@@ -69,7 +69,7 @@ namespace InvoiceAPI.Models.Invoce.Entity
             return this.Email;
         }
 
-        public int GetTelephoneNumber()
+        public string GetTelephoneNumber()
         {
             return this.TelephoneNumber;
         }

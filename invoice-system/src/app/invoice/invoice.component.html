@@ -10,7 +10,7 @@
                     Please enter a <strong>raid</strong>
                   </mat-error>
                   <mat-error *ngIf="formGroup.controls['raidControl'].hasError('pattern') && formGroup.controls['raidControl'].touched">
-                    Raid must consist of <strong>numbers</strong>
+                    Raid must consist of <strong>numbers</strong> and no more 10 numbers
                   </mat-error>
             </mat-form-field>
 
@@ -49,7 +49,7 @@
                     Please enter a <strong>index</strong>
                   </mat-error>
                   <mat-error *ngIf="formGroup.controls['indexNameControl'].hasError('pattern') && formGroup.controls['indexNameControl'].touched">
-                    Index must consist of <strong>numbers</strong>
+                    Index must consist of <strong>numbers</strong>and no more 10 numbers
                   </mat-error>
             </mat-form-field>
 
@@ -79,9 +79,12 @@
                 <span matPrefix>+ &nbsp;</span>
                 <input matInput formControlName="telephoneNumberControl" name="name" />
                 <mat-hint align="start"><strong>Please,input your telephone number</strong> </mat-hint>
-                <mat-error *ngIf="formGroup.controls['telephoneNumberControl'].invalid && formGroup.controls['telephoneNumberControl'].touched">
-                    Please enter a <strong>telephone number</strong>
-                  </mat-error>
+                <mat-error *ngIf="formGroup.controls['telephoneNumberControl'].hasError('required') && formGroup.controls['telephoneNumberControl'].touched">
+                  Please enter a <strong>e-mail</strong>
+                </mat-error>
+                <mat-error *ngIf="formGroup.controls['telephoneNumberControl'].hasError('pattern') && formGroup.controls['telephoneNumberControl'].touched">
+                  Telephone number must consist of <strong>numbers</strong>and have 12 numeral
+                </mat-error>
             </mat-form-field>
 
             <app-date-picker class="input" (notifyDatePicker)='getDataFromDatePicker($event)'></app-date-picker>
