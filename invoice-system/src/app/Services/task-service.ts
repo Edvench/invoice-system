@@ -42,8 +42,9 @@ export class TaskService {
         return this.http.get(this.apiEndPoint + "/task/getTasks?" + params);
     }
 
-    getTasksDataFromFilter(dataFrom: string, dataTo: string): Observable<any> {
+    getTasksDataFromFilter(dataFrom: string, dataTo: string,currentPage: number): Observable<any> {
         const params = new HttpParams()
+            .set('page', currentPage.toString())
             .set('dataFrom', dataFrom)
             .set('dataTo', dataTo)
 

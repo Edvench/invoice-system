@@ -1,16 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Net;
-//using System.Threading.Tasks;
-using InvoiceAPI.Models.Task.Entity;
 using InvoiceAPI.Http.Request.Task;
 using InvoiceAPI.Models.Task.Entity.Repository;
 using InvoiceAPI.Models.Task.Entity.UseCase;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using InvoiceAPI.Http.Request;
-using InvoiceAPI.Framework.Request;
 
 namespace InvoiceAPI.Http.Controllers
 {

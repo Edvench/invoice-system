@@ -12,7 +12,7 @@
                 </app-date-picker>
             </div>
             <div class="button-wrapper">
-                <button mat-raised-button (click)="searchWithData()">Search Data</button>
+                <button mat-raised-button (click)="searchWithData(0)">Search Data</button>
             </div>
         </form>
 
@@ -32,8 +32,19 @@
             <p class="task-date">{{task.dateFoTask}}</p>
         </li>
 
+        <p *ngIf="searchResultData.length">
+            <li *ngFor="let result of searchResultData">
+                <p>CONTENT</p>
+                <p class="task-title">{{result.title}}</p>
+                <p class="task-description">{{result.description}}</p>
+                <p class="task-money">{{result.money}}</p>
+                <p class="task-date">{{result.dateFoTask}}</p>
+            </li>
+        </p>
+
         <p *ngIf="tasks.length">
             <button mat-raised-button (click)="getTasksResponce(fullResponce.currentPage)">More Tasks</button>
+            <button mat-raised-button (click)="searchWithData(fullResponce.currentPage)">More Data Result</button>
         </p>
     </div>
 </div>
