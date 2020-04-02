@@ -12,15 +12,15 @@
                 </app-date-picker>
             </div>
             <div class="button-wrapper">
-                <button mat-raised-button (click)="searchWithData(0)">Search Data</button>
+                <button mat-raised-button (click)="getTasksResponce(0)">Search Data</button>
             </div>
         </form>
 
         <p *ngIf="tasks.length">
-            <mat-form-field class="search-input">
+            <mat-form-field class="search-input" [formGroup]="formGroup">
                 <mat-label>Please, enter title for search</mat-label>
-                <input matInput required maxlength="256" name="name2" [(ngModel)]="titleFromSearch"
-                    (ngModelChange)="getFilterTasksResponce(titleFromSearch)" />
+                <input matInput required maxlength="256" name="name2" formControlName="titleFromSearchControl" 
+                    (change)="getFilterTasksResponce(formGroup.controls['titleFromSearchControl'].value)" />
             </mat-form-field>
         </p>
 
@@ -32,18 +32,11 @@
             <p class="task-date">{{task.dateFoTask}}</p>
         </li>
 
-        <p [ngSwitch]="filterId">
+        <p *ngIf="tasks.length">
             <button mat-raised-button 
-                *ngSwitchCase="'all'" 
                 [disabled]="fullResponce.currentPage == fullResponce.pageCount" 
                 (click)="getTasksResponce(fullResponce.currentPage)">
-                More Tasks
-            </button>
-            <button mat-raised-button 
-                *ngSwitchCase="'dateFilter'"
-                [disabled]="fullResponce.currentPage == fullResponce.pageCount" 
-                (click)="searchWithData(fullResponce.currentPage)">
-                More Data Result
+                More
             </button>
         </p>
     </div>

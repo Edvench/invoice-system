@@ -1,12 +1,9 @@
 ﻿using InvoiceAPI.Framework.Db;
 using InvoiceAPI.Framework.Provider;
-using InvoiceAPI.Framework.Request;
-using InvoiceAPI.Http.Request;
 using InvoiceAPI.Http.Request.Task;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 
 namespace InvoiceAPI.Models.Task.Entity.Repository
 {

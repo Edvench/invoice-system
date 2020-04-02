@@ -2,6 +2,7 @@ import { Injectable, ComponentFactoryResolver } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { environment } from '../../environments/environment';
 import { Observable } from 'rxjs';
+import { FormControl } from '@angular/forms';
 
 
 
@@ -13,7 +14,7 @@ export class TaskService {
         this.apiEndPoint = environment.domainUrl;
     }
 
-    createTaskRequest(money:number,title:string,description:string,data:string): Observable<any> {
+    createTask(money:number,title:string,description:string,data:string): Observable<any> {
         var formData = new FormData();
         // if(task.money){task.money = formData.append('Money', task.money.toString());}
         
@@ -24,13 +25,16 @@ export class TaskService {
         return this.http.post(this.apiEndPoint + "/task/create", formData);
     }
 
-    getTasksResponce(): Observable<any> {
-        return this.http.get(this.apiEndPoint + "/task/getTasks")
-    }
+    ///For all tasks from bd
+    // getTasksResponce(): Observable<any> {
+    //     return this.http.get(this.apiEndPoint + "/task/getTasks")
+    // }
 
-    getMoreTasksResponce(currentPage: number): Observable<any> {
+    getTasks(currentPage: number,dataFrom?: string, dataTo?: string): Observable<any> {
         const params = new HttpParams()
             .set('page', currentPage.toString())
+            .set('dataFrom', dataFrom)
+            .set('dataTo', dataTo)
 
         return this.http.get(this.apiEndPoint + "/task/getTasks?" + params);
     }
@@ -38,15 +42,6 @@ export class TaskService {
     getTasksFromFilter(title: string): Observable<any> {
         const params = new HttpParams()
             .set('title', title)
-
-        return this.http.get(this.apiEndPoint + "/task/getTasks?" + params);
-    }
-
-    getTasksDataFromFilter(dataFrom: string, dataTo: string,currentPage: number): Observable<any> {
-        const params = new HttpParams()
-            .set('page', currentPage.toString())
-            .set('dataFrom', dataFrom)
-            .set('dataTo', dataTo)
 
         return this.http.get(this.apiEndPoint + "/task/getTasks?" + params);
     }

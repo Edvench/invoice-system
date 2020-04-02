@@ -35,7 +35,7 @@ export class CreateTaskComponent implements OnInit {
   }
 
   public addTask() {
-    this.taskService.createTaskRequest(
+    this.taskService.createTask(
       this.formGroup.controls["raidControl"].value,
       this.formGroup.controls["titleControl"].value,
       this.formGroup.controls["descriptionControl"].value,

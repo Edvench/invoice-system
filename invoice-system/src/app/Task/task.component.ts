@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { TaskService } from '../Services/task-service';
 import { Task } from '../Entity/task';
 import { DatePickerComponent } from '../Entity/date-picker/date-picker.component';
+import { FormGroup, FormBuilder } from '@angular/forms';
 
 @Component({
   moduleId: module.id,
@@ -15,20 +16,24 @@ import { DatePickerComponent } from '../Entity/date-picker/date-picker.component
 })
 export class TaskComponent implements OnInit {
 
-  @Input() private titleFromSearch: string;
-  private validDateFrom: string;
-  private validDateTo: string;
+  // @Input() private titleFromSearch: string;
+  private validDateFrom: string = "";
+  private validDateTo: string = "";
   private tasks: Task[] = [];
-  private filterId: string = "";
   private currentPageNumber: number;
   private fullResponce: any;
   private apiEndPoint: string;
 
+  private formGroup: FormGroup;
+
   constructor(private http: HttpClient,
     private router: Router,
     private taskService: TaskService,
-    private picker: DatePickerComponent) {
+    private picker: DatePickerComponent,
+    private formBuilder:FormBuilder) {
     this.apiEndPoint = environment.domainUrl;
+    this.formGroup = formBuilder.group({
+      titleFromSearchControl:            [""]})
   }
 
   ngOnInit() {
@@ -40,32 +45,26 @@ export class TaskComponent implements OnInit {
   }
 
   getTasksResponce(currentPage: number): any {
-
-    console.log(this.filterId)
     this.currentPageNumber = currentPage + 1;
     if (this.currentPageNumber == 1) {
-
       this.tasks = [];
-      this.taskService.getMoreTasksResponce(this.currentPageNumber).subscribe(
+      this.taskService.getTasks(this.currentPageNumber,this.validDateFrom, this.validDateTo).subscribe(
         response => {
           this.fullResponce = response;
           response.collection.forEach(element => {
             this.tasks.push(element);
-            this.filterId = "all";
           });
           console.log(this.fullResponce);
           console.log(this.tasks)
           return this.fullResponce
         });
     }
-
     else{
-      this.taskService.getMoreTasksResponce(this.currentPageNumber).subscribe(
+      this.taskService.getTasks(this.currentPageNumber,this.validDateFrom, this.validDateTo).subscribe(
         response => {
           this.fullResponce = response;
           response.collection.forEach(element => {
             this.tasks.push(element);
-            this.filterId = "all";
           });
           console.log(this.fullResponce);
           console.log(this.tasks)
@@ -73,21 +72,6 @@ export class TaskComponent implements OnInit {
         });
     }
   }
-
-  getFilterTasksResponce(title: string) {
-    this.titleFromSearch = title;
-    if (this.titleFromSearch != null) {
-      this.taskService.getTasksFromFilter(this.titleFromSearch).subscribe(
-        response => {
-          this.fullResponce = response;
-          response.collection.forEach(element => {
-            this.tasks.splice(0, this.tasks.length, element);
-          });
-          console.log(this.tasks);
-        });
-    }
-  }
-
 
   onNotify(params): void {
     if (params.fieldName === 'validDateFrom') {
@@ -97,34 +81,17 @@ export class TaskComponent implements OnInit {
     }
   }
 
-  searchWithData(currentPage: number) {
-    this.filterId = "";
-    this.currentPageNumber = currentPage + 1;
-    if (this.currentPageNumber == 1) {
-
-      this.tasks = [];
-      this.taskService.getTasksDataFromFilter(this.validDateFrom, this.validDateTo, this.currentPageNumber).subscribe(
+  getFilterTasksResponce(title: string) {
+    this.formGroup.controls["titleFromSearchControl"].setValue(title);
+    if (this.formGroup.controls["titleFromSearchControl"].value != null) {
+      this.taskService.getTasksFromFilter(this.formGroup.controls["titleFromSearchControl"].value).subscribe(
         response => {
           this.fullResponce = response;
           response.collection.forEach(element => {
-            this.tasks.push(element);
-            this.filterId = "dateFilter";
+            this.tasks.splice(0, this.tasks.length, element);
           });
-          console.log(response);
           console.log(this.tasks);
         });
     }
-    else {
-      this.taskService.getTasksDataFromFilter(this.validDateFrom, this.validDateTo, this.currentPageNumber).subscribe(
-        response => {
-          this.fullResponce = response;
-          response.collection.forEach(element => {
-            this.tasks.push(element);
-          });
-          console.log(response);
-          console.log(this.tasks);
-        });
-    }
-
   }
 }
