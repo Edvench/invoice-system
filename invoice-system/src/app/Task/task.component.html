@@ -2,10 +2,10 @@
     <div class="section">
         <div class="button-section">
             <button class="button-wrapper" mat-raised-button (click)="reddirectCreateTaskComponent()">Create new task</button>
-            <button class="button-wrapper" mat-raised-button (click)="viewTasks(0)">View Tasks</button>
+            <button class="button-wrapper" mat-raised-button (click)="viewTasks(0)">View All Tasks</button>
         </div>
 
-        <form *ngIf="tasks.length">
+        <form >
             <div class="datepicker-form">
                 <app-date-picker fieldName="validDateFrom" (notifyDatePicker)='getDate($event)'></app-date-picker>
                 <app-date-picker class="datepicker-right" fieldName="validDateTo" (notifyDatePicker)='getDate($event)'>
@@ -16,11 +16,11 @@
             </div>
         </form>
 
-        <p *ngIf="tasks.length">
+        <p >
             <mat-form-field class="search-input" [formGroup]="formGroup">
                 <mat-label>Please, enter title for search</mat-label>
                 <input matInput required maxlength="256" name="name2" formControlName="titleFromSearchControl" 
-                    (change)="viewTasks(0)" />
+                    (ngModelChange)="viewTasks(0)" />
             </mat-form-field>
         </p>
 

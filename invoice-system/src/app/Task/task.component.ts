@@ -28,54 +28,37 @@ export class TaskComponent implements OnInit {
     private router: Router,
     private taskService: TaskService,
     private picker: DatePickerComponent,
-    private formBuilder:FormBuilder) 
-  {
+    private formBuilder: FormBuilder) {
     this.apiEndPoint = environment.domainUrl;
     this.formGroup = formBuilder.group({
-      titleFromSearchControl:            [""]});  
+      titleFromSearchControl: [""]
+    });
   }
 
   ngOnInit() {
   }
 
-  private viewTasks(currentPage: number):void {
+  private viewTasks(currentPage: number): void {
     this.currentPageNumber = currentPage + 1;
     if (this.currentPageNumber == 1) {
       this.tasks = [];
-      this.taskService.getTasks(this.currentPageNumber,this.validDateFrom, this.validDateTo,this.formGroup.controls["titleFromSearchControl"].value).subscribe(
-        response => {
-          this.fullResponce = response;
-          response.collection.forEach(element => {
-            this.tasks.push(element);
-          });
-          console.log(this.fullResponce);
-          console.log(this.tasks)
-        });
     }
-
-    else {
-      this.taskService.getTasks(this.currentPageNumber,this.validDateFrom, this.validDateTo,this.formGroup.controls["titleFromSearchControl"].value).subscribe(
-        response => {
-          this.fullResponce = response;
-          response.collection.forEach(element => {
-            this.tasks.push(element);
-          });
-          console.log(this.fullResponce);
-          console.log(this.tasks)
+    this.taskService.getTasks(this.currentPageNumber, this.validDateFrom, this.validDateTo, this.formGroup.controls["titleFromSearchControl"].value).subscribe(
+      response => {
+        this.fullResponce = response;
+        response.collection.forEach(element => {
+          this.tasks.push(element);
         });
-        ///For clear datepicker control
-        // if(this.validDateFrom&&this.validDateTo !=""){
-        //   this.validDateFrom = "";
-        //   this.validDateTo = "";
-        // }
-    }
+        console.log(this.fullResponce);
+        console.log(this.tasks)
+      });
   }
 
-  private getDate(params):void {
+  private getDate(params): void {
     if (params.fieldName === 'validDateFrom') {
       this.validDateFrom = params.date;
-    } 
-    
+    }
+
     else if (params.fieldName === 'validDateTo') {
       this.validDateTo = params.date;
     }

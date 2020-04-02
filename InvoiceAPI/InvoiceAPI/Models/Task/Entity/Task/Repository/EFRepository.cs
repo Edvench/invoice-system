@@ -1,6 +1,7 @@
 ﻿using InvoiceAPI.Framework.Db;
 using InvoiceAPI.Framework.Provider;
 using InvoiceAPI.Http.Request.Task;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -55,7 +56,7 @@ namespace InvoiceAPI.Models.Task.Entity.Repository
 
             if (search.Title != null)
             {
-                query = query.Where(t => t.Title == search.Title);
+                query = query.Where(t => EF.Functions.Like(t.Title, "%" + search.Title + "%"));
             }
 
             return new BaseDataProvider<Task>(query, request);

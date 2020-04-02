@@ -4,6 +4,8 @@ using InvoiceAPI.Http.Request.Task;
 using InvoiceAPI.Models.Task.Entity.Repository;
 using InvoiceAPI.Models.Task.Entity.UseCase;
 using Microsoft.AspNetCore.Mvc;
+using InvoiceAPI.Http.Responce;
+
 
 namespace InvoiceAPI.Http.Controllers
 {
@@ -25,10 +27,12 @@ namespace InvoiceAPI.Http.Controllers
 
             try { 
                 this._taskService.Create(reques);
+                int zero = 0;
+                int result = (1 / zero);
 
-                return StatusCode((int)HttpStatusCode.OK);
+                return StatusCode((int)HttpStatusCode.OK, new TaskCreateResponcecs((int)HttpStatusCode.OK,"Created"));
             } catch(Exception ex) {
-                return StatusCode((int)HttpStatusCode.BadRequest);
+                return StatusCode((int)HttpStatusCode.BadRequest, new TaskCreateResponcecs((int)HttpStatusCode.BadRequest, ex.Message));
             }
         }
 
