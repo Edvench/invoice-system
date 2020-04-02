@@ -15,7 +15,7 @@ export class DatePickerComponent implements OnInit {
 
   @Input() fieldName:string;///кастомный параметр для имя поля(определ.в task.component как dataFrom DatatTO)
   @Output() notifyDatePicker: EventEmitter<object> = new EventEmitter<object>();///Обработчик событий(вы-
-  //зывает функцию в род. компоненте)
+                                                                                //зывает функцию в род. компоненте)
   private formGroup: FormGroup;
 
   constructor( private formBuilder:FormBuilder) {
@@ -27,7 +27,7 @@ export class DatePickerComponent implements OnInit {
 
   /// Форматирует любой параметр с типом Date в string и передает в 
   ///функцию(обработчик событий) контекста род.класса
-  convertDataToString(dateObjectValue:Date){
+  private convertDataToString(dateObjectValue:Date){
     const dayFrom = dateObjectValue.getDate();
     const monthFrom = dateObjectValue.getMonth() + 1;
     const yearFrom = dateObjectValue.getFullYear();

@@ -72,7 +72,7 @@ export class UploadService {
     return status;
   }
 
-  getSheetName(formData: FormData): Observable<any> {
+  public getSheetName(formData: FormData): Observable<any> {
 
     return this.http.post(this.apiEndPoint + "/home/upload", formData);
   }

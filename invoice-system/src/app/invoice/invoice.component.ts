@@ -51,16 +51,16 @@ export class InvoiceComponent implements OnInit {
 
   ngOnInit() { }
 
-  goTaskComponent() {
+  private goTaskComponent() {
     this.router.navigate(['task']);
   }
 
-  getDataFromDatePicker(params):string {
+  private getDataFromDatePicker(params):string {
     this.validDate = params.date;
     return this.validDate; 
   }
 
-  public getInvoice(){
+  private getInvoice(){
     this.request.file = this.fileService.getFile();
     this.invoiceService.postData(
       this.formGroup.controls["raidControl"].value,
@@ -86,7 +86,7 @@ export class InvoiceComponent implements OnInit {
     );
   }
 
-  public sheetName():any{
+  private sheetName():any{
     this.sheettNameResponce = this.uploadService.sheetNames;
     return this.sheettNameResponce
   }

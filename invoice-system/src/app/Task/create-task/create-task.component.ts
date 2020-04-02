@@ -29,12 +29,12 @@ export class CreateTaskComponent implements OnInit {
 
   ngOnInit() { }
 
-  getDataFromDatePicker(params):string {
+  private getDataFromDatePicker(params):string {
     this.validDate = params.date;
     return this.validDate; 
   }
 
-  public addTask() {
+  private addTask() {
     this.taskService.createTask(
       this.formGroup.controls["raidControl"].value,
       this.formGroup.controls["titleControl"].value,

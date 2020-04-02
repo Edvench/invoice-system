@@ -1,18 +1,18 @@
 <div class="container">
     <div class="section">
         <div class="button-section">
-            <button class="button-wrapper" mat-raised-button (click)="goCreateTaskLink()">Create new task</button>
-            <button class="button-wrapper" mat-raised-button (click)="getTasksResponce(0)">View Tasks</button>
+            <button class="button-wrapper" mat-raised-button (click)="reddirectCreateTaskComponent()">Create new task</button>
+            <button class="button-wrapper" mat-raised-button (click)="viewTasks(0)">View Tasks</button>
         </div>
 
         <form *ngIf="tasks.length">
             <div class="datepicker-form">
-                <app-date-picker fieldName="validDateFrom" (notifyDatePicker)='onNotify($event)'></app-date-picker>
-                <app-date-picker class="datepicker-right" fieldName="validDateTo" (notifyDatePicker)='onNotify($event)'>
+                <app-date-picker fieldName="validDateFrom" (notifyDatePicker)='getDate($event)'></app-date-picker>
+                <app-date-picker class="datepicker-right" fieldName="validDateTo" (notifyDatePicker)='getDate($event)'>
                 </app-date-picker>
             </div>
             <div class="button-wrapper">
-                <button mat-raised-button (click)="getTasksResponce(0)">Search Data</button>
+                <button mat-raised-button (click)="viewTasks(0)">Search Data</button>
             </div>
         </form>
 
@@ -20,7 +20,7 @@
             <mat-form-field class="search-input" [formGroup]="formGroup">
                 <mat-label>Please, enter title for search</mat-label>
                 <input matInput required maxlength="256" name="name2" formControlName="titleFromSearchControl" 
-                    (change)="getFilterTasksResponce(formGroup.controls['titleFromSearchControl'].value)" />
+                    (change)="viewTasks(0)" />
             </mat-form-field>
         </p>
 
@@ -35,7 +35,7 @@
         <p *ngIf="tasks.length">
             <button mat-raised-button 
                 [disabled]="fullResponce.currentPage == fullResponce.pageCount" 
-                (click)="getTasksResponce(fullResponce.currentPage)">
+                (click)="viewTasks(fullResponce.currentPage)">
                 More
             </button>
         </p>
