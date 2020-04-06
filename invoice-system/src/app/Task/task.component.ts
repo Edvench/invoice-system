@@ -33,6 +33,7 @@ export class TaskComponent implements OnInit {
     this.formGroup = formBuilder.group({
       titleFromSearchControl: [""]
     });
+
   }
 
   ngOnInit() {

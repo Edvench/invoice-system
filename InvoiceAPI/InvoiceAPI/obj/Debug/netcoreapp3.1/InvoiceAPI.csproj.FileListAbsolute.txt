@@ -292,3 +292,4 @@ D:\Work2\invoice-system\InvoiceAPI\InvoiceAPI\obj\Debug\netcoreapp3.1\InvoiceAPI
 D:\Work2\invoice-system\InvoiceAPI\InvoiceAPI\obj\Debug\netcoreapp3.1\InvoiceAPI.MvcApplicationPartsAssemblyInfo.cache
 D:\Work2\invoice-system\InvoiceAPI\InvoiceAPI\bin\Debug\netcoreapp3.1\DocumentFormat.OpenXml.dll
 D:\Work2\invoice-system\InvoiceAPI\InvoiceAPI\bin\Debug\netcoreapp3.1\System.IO.Packaging.dll
+D:\Work2\invoice-system\InvoiceAPI\InvoiceAPI\obj\Debug\netcoreapp3.1\InvoiceAPI.csprojAssemblyReference.cache

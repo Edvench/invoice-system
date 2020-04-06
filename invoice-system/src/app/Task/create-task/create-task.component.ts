@@ -6,7 +6,8 @@ import { TaskService } from 'src/app/Services/task-service';
   moduleId: module.id,
   selector: 'app-create-task',
   templateUrl: 'create-task.component.html',
-  styleUrls: ['create-task.component.css']
+  styleUrls: ['create-task.component.css',
+  '../../Styles/global.scss']
 })
 export class CreateTaskComponent implements OnInit {
 

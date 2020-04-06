@@ -8,7 +8,8 @@ import { UploadService } from '../../Services/upload.service';
   moduleId:module.id,
   selector: 'app-upload',
   templateUrl: 'upload.component.html',
-  styleUrls: ['upload.component.scss']
+  styleUrls: ['upload.component.scss',
+  '../../Styles/global.scss']
 })
 export class UploadComponent {
   constructor(public dialog: MatDialog, public uploadService: UploadService) { }

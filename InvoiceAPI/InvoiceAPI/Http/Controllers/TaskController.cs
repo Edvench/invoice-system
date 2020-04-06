@@ -27,8 +27,9 @@ namespace InvoiceAPI.Http.Controllers
 
             try { 
                 this._taskService.Create(reques);
-                int zero = 0;
-                int result = (1 / zero);
+                ///For error
+                //int zero = 0;
+                //int result = (1 / zero);
 
                 return StatusCode((int)HttpStatusCode.OK, new TaskCreateResponcecs((int)HttpStatusCode.OK,"Created"));
             } catch(Exception ex) {

@@ -5,16 +5,52 @@
   margin-right: auto; 
 }
 
+.section{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-width: 30%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+///buttons
 .button-wrapper{
     margin: 15px;
 }
 
-.section{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    min-width: 30%;
-    margin-left: auto;
-    margin-right: auto;
+.btn{
+  background-color: #3f51b5;
+  color: white;
+  &:hover{
+    background-color: #1A1EB7;
+    transition-duration: 1s
+  }
 }
+
+.btn-cancel{
+  background-color: white;
+  color: black;
+  border: none;
+  &:hover{
+    background-color: #E6E6E8;
+    transition-duration: 1s
+  }
+}
+
+.btn:disabled, .btn:disabled:hover{
+  background-color:rgba(0,0,0,.26);
+}
+
+// .c-icon{
+//   display: flex;
+//   width: 32px;
+//   height: 32px;
+ 
+//   background-size: 30px ;
+//   background-repeat: no-repeat;
+//   background-image:url(src\assets\img\cloud.svg);
+  
+// }
+

@@ -9,7 +9,8 @@ import { FormatFileService } from 'src/app/Services/formatFile.service';
   moduleId: module.id,
   selector: 'app-dialog',
   templateUrl: 'dialog.component.html',
-  styleUrls: ['dialog.component.scss']
+  styleUrls: ['dialog.component.scss',
+  '../../../Styles/global.scss']
 })
 export class DialogComponent implements OnInit {
   @ViewChild('file', { static: false }) file;

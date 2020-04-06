@@ -2,9 +2,6 @@ import { Injectable, ComponentFactoryResolver } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { environment } from '../../environments/environment';
 import { Observable } from 'rxjs';
-import { FormControl } from '@angular/forms';
-
-
 
 @Injectable()
 export class TaskService {
