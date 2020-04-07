@@ -1,8 +1,10 @@
 <div class="container">
     <div class="section">
         <div class="button-section">
-            <button class="button-wrapper btn" mat-raised-button (click)="reddirectCreateTaskComponent()">Create new task</button>
-            <button class="button-wrapper btn" mat-raised-button (click)="viewTasks(0)">View All Tasks</button>
+            <button class="button-wrapper btn" mat-raised-button (click)="reddirectCreateTaskComponent()">
+                <span class="icon-pen"></span>Create new task</button>
+            <button class="button-wrapper btn" mat-raised-button (click)="viewTasks(0)">
+                <span class="icon-list"></span>View All Tasks</button>
         </div>
 
         <form >
@@ -12,7 +14,8 @@
                 </app-date-picker>
             </div>
             <div class="button-wrapper">
-                <button mat-raised-button class="btn" (click)="viewTasks(0)">Search Data</button>
+                <button mat-raised-button class="btn" (click)="viewTasks(0)">
+                    <span class="icon-search"></span>Search Data</button>
             </div>
         </form>
 
@@ -36,7 +39,8 @@
             <button mat-raised-button class="btn"
                 [disabled]="fullResponce.currentPage == fullResponce.pageCount" 
                 (click)="viewTasks(fullResponce.currentPage)">
-                More
+                <span class="icon-more"></span>
+                
             </button>
         </p>
     </div>

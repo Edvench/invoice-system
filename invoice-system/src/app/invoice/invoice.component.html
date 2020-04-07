@@ -130,7 +130,10 @@
             
 
         </form>
-        <button class="button-wrapper btn" mat-raised-button [disabled]="formGroup.invalid" (click)="getInvoice()">Generate invoice</button>
-        <button class="button-wrapper btn" mat-raised-button (click)="goTaskComponent()">Task Component</button>
+        <button class="button-wrapper btn" mat-raised-button [disabled]="formGroup.invalid" (click)="getInvoice()">
+          <span class="icon-settings"></span>Generate invoice</button>
+        <button class="button-wrapper btn" mat-raised-button (click)="goTaskComponent()">
+          Task Component
+        </button>
     </div>
 </div>
